@@ -6,5 +6,6 @@ var searchData=
   ['set_5fline_5fstatement',['set_line_statement',['../classinja_1_1_environment.html#a7325934e8d2fcfd2753604830519342e',1,'inja::Environment']]],
   ['set_5flstrip_5fblocks',['set_lstrip_blocks',['../classinja_1_1_environment.html#a7020420515499399b851f03da31b685d',1,'inja::Environment']]],
   ['set_5fstatement',['set_statement',['../classinja_1_1_environment.html#a3de73df9dc768bd00633a41a58fb5d41',1,'inja::Environment']]],
-  ['set_5ftrim_5fblocks',['set_trim_blocks',['../classinja_1_1_environment.html#a6825801f1d4b98728b71056dddf44a85',1,'inja::Environment']]]
+  ['set_5ftrim_5fblocks',['set_trim_blocks',['../classinja_1_1_environment.html#a6825801f1d4b98728b71056dddf44a85',1,'inja::Environment']]],
+  ['support',['Support',['../support_page.html',1,'']]]
 ];
