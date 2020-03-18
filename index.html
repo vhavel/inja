@@ -66,7 +66,12 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a href="https://github.com/pantor/inja/releases"></a></p>
-<p><a href="https://travis-ci.org/pantor/inja"></a> <a href="https://ci.appveyor.com/project/pantor/inja"></a> <a href="https://www.codacy.com/app/pantor/inja?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=pantor/inja&amp;amp;utm_campaign=Badge_Grade"></a> <a href="https://github.com/pantor/inja/releases"></a> <a href="http://github.com/pantor/inja/issues"></a> <a href="https://raw.githubusercontent.com/pantor/inja/master/LICENSE"></a></p>
+<p><a href="https://travis-ci.org/pantor/inja"></a></p>
+<p><a href="https://ci.appveyor.com/project/pantor/inja"></a></p>
+<p><a href="https://www.codacy.com/app/pantor/inja?utm_source=github.com&amp;amp;utm_medium=referral&amp;amp;utm_content=pantor/inja&amp;amp;utm_campaign=Badge_Grade"></a></p>
+<p><a href="https://github.com/pantor/inja/releases"></a></p>
+<p><a href="http://github.com/pantor/inja/issues"></a></p>
+<p><a href="https://raw.githubusercontent.com/pantor/inja/master/LICENSE"></a> </p>
 <p>Inja is a template engine for modern C++, loosely inspired by <a href="http://jinja.pocoo.org">jinja</a> for python. It has an easy and yet powerful template syntax with all variables, loops, conditions, includes, callbacks, comments you need, nested and combined as you like. Inja uses the wonderful <a href="https://github.com/nlohmann/json">json</a> library by nlohmann for data input and handling. Most importantly, <em>inja</em> needs only two header files, which is (nearly) as trivial as integration in C++ can get. Of course, everything is tested on all relevant compilers. Here is what it looks like:</p>
 <div class="fragment"><div class="line">{c++}</div><div class="line">json data;</div><div class="line">data[&quot;name&quot;] = &quot;world&quot;;</div><div class="line"></div><div class="line">inja::render(&quot;Hello {{ name }}!&quot;, data); // Returns &quot;Hello world!&quot;</div></div><!-- fragment --><h2>Integration</h2>
 <p>Inja is a headers only library, which can be downloaded from the <a href="https://github.com/pantor/inja/releases">releases</a> or directly from the <code>include/</code> or <code>single_include/</code> folder. Inja uses <code>nlohmann/json.hpp</code> as its single dependency, so make sure it can be included from <code><a class="el" href="inja_8hpp_source.html">inja.hpp</a></code>. json can be downloaded <a href="https://github.com/nlohmann/json/releases">here</a>. Then integration is as easy as:</p>
