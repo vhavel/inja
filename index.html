@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo-doxygen.jpg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Inja
-   &#160;<span id="projectnumber">2.1.0</span>
+   &#160;<span id="projectnumber">2.2.0</span>
    </div>
    <div id="projectbrief">A Template Engine for Modern C++</div>
   </td>
@@ -77,7 +77,7 @@ $(function() {
 <p>Inja is a headers only library, which can be downloaded from the <a href="https://github.com/pantor/inja/releases">releases</a> or directly from the <code>include/</code> or <code>single_include/</code> folder. Inja uses <code>nlohmann/json.hpp</code> as its single dependency, so make sure it can be included from <code><a class="el" href="inja_8hpp_source.html">inja.hpp</a></code>. json can be downloaded <a href="https://github.com/nlohmann/json/releases">here</a>. Then integration is as easy as:</p>
 <div class="fragment"><div class="line">{c++}</div><div class="line">#include &lt;inja.hpp&gt;</div><div class="line"></div><div class="line">// Just for convenience</div><div class="line">using namespace inja;</div><div class="line">using json = nlohmann::json;</div></div><!-- fragment --><p>If you are using the <a href="http://mesonbuild.com">Meson Build System</a>, then you can wrap this repository as a subproject.</p>
 <p>If you are using <a href="https://conan.io">Conan</a> to manage your dependencies, have a look at <a href="https://github.com/DEGoodmanWilson/conan-inja">this repository</a>. Please file issues <a href="https://github.com/DEGoodmanWilson/conan-inja/issues">here</a> if you experience problems with the packages.</p>
-<p>You can also integrate inja in your project using <a href="https://github.com/ruslo/hunter">Hunter</a>, a package manager for C++.</p>
+<p>You can also integrate inja in your project using <a href="https://github.com/cpp-pm/hunter">Hunter</a>, a package manager for C++.</p>
 <p>If you are using <a href="https://github.com/Microsoft/vcpkg">vcpkg</a> on your project for external dependencies, then you can use the <a href="https://github.com/Microsoft/vcpkg/tree/master/ports/inja">inja package</a>. Please see the vcpkg project for any issues regarding the packaging.</p>
 <p>If you are using <a href="https://cget.readthedocs.io/en/latest/">cget</a>, you can install the latest development version with <code>cget install pantor/inja</code>. A specific version can be installed with <code>cget install pantor/inja@v2.1.0</code>.</p>
 <h2>Tutorial</h2>
