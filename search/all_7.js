@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['renderer',['Renderer',['../classinja_1_1_renderer.html',1,'inja']]],
-  ['rendererror',['RenderError',['../structinja_1_1_render_error.html',1,'inja']]]
+  ['parser',['Parser',['../classinja_1_1_parser.html',1,'inja']]],
+  ['parserconfig',['ParserConfig',['../structinja_1_1_parser_config.html',1,'inja']]],
+  ['parsererror',['ParserError',['../structinja_1_1_parser_error.html',1,'inja']]],
+  ['parserstatic',['ParserStatic',['../classinja_1_1_parser_static.html',1,'inja']]]
 ];

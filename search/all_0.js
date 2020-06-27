@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['environment',['Environment',['../classinja_1_1_environment.html',1,'inja']]]
+  ['count_5fvariables',['count_variables',['../structinja_1_1_template.html#a6a46ed1ecf9994d6a2653d24f6ab34cf',1,'inja::Template']]]
 ];
