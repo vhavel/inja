@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
-  0: "befijlprst",
-  1: "befijlprst",
+  0: "efijlnprst",
+  1: "efijlnprst",
   2: "is",
   3: "s"
 };

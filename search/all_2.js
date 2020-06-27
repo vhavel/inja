@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['fileerror',['FileError',['../structinja_1_1_file_error.html',1,'inja']]],
-  ['functionstorage',['FunctionStorage',['../classinja_1_1_function_storage.html',1,'inja']]]
+  ['include_5ftemplate',['include_template',['../classinja_1_1_environment.html#ab34fc09b61acaaefbbe891036f049670',1,'inja::Environment']]],
+  ['injaerror',['InjaError',['../structinja_1_1_inja_error.html',1,'inja']]]
 ];

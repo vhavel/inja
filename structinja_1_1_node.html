@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inja: inja::Bytecode Struct Reference</title>
+<title>Inja: inja::Node Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>inja</b></li><li class="navelem"><a class="el" href="structinja_1_1_bytecode.html">Bytecode</a></li>  </ul>
+<li class="navelem"><b>inja</b></li><li class="navelem"><a class="el" href="structinja_1_1_node.html">Node</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -69,15 +69,15 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structinja_1_1_bytecode-members.html">List of all members</a>  </div>
+<a href="structinja_1_1_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">inja::Bytecode Struct Reference</div>  </div>
+<div class="title">inja::Node Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a45f5f81bd74040aa67201d1f9aef38e5"><td class="memItemLeft" align="right" valign="top"><a id="a45f5f81bd74040aa67201d1f9aef38e5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Op</b> : uint8_t { <br />
+<tr class="memitem:a96b47dcb4e125a303ffe2d60f413599c"><td class="memItemLeft" align="right" valign="top"><a id="a96b47dcb4e125a303ffe2d60f413599c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Op</b> : uint8_t { <br />
 &#160;&#160;<b>Nop</b>, 
 <b>PrintText</b>, 
 <b>PrintValue</b>, 
@@ -138,8 +138,8 @@ Public Types</h2></td></tr>
 <b>EndLoop</b>
 <br />
  }</td></tr>
-<tr class="separator:a45f5f81bd74040aa67201d1f9aef38e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72d5d670f98945823ae1f9412fbcf76b"><td class="memItemLeft" align="right" valign="top"><a id="a72d5d670f98945823ae1f9412fbcf76b"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Flag</b> { <br />
+<tr class="separator:a96b47dcb4e125a303ffe2d60f413599c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabe21e7b6be4cf51b1d98ea12527b34c"><td class="memItemLeft" align="right" valign="top"><a id="aabe21e7b6be4cf51b1d98ea12527b34c"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Flag</b> { <br />
 &#160;&#160;<b>ValueMask</b> = 0x03, 
 <b>ValuePop</b> = 0x00, 
 <b>ValueImmediate</b> = 0x01, 
@@ -148,40 +148,40 @@ Public Types</h2></td></tr>
 &#160;&#160;<b>ValueLookupPointer</b> = 0x03
 <br />
  }</td></tr>
-<tr class="separator:a72d5d670f98945823ae1f9412fbcf76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aabe21e7b6be4cf51b1d98ea12527b34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab819375c056e667714263b677b9ceb20"><td class="memItemLeft" align="right" valign="top"><a id="ab819375c056e667714263b677b9ceb20"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Bytecode</b> (Op op, unsigned int args=0)</td></tr>
-<tr class="separator:ab819375c056e667714263b677b9ceb20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93220e80db37d3c5ddd3c9219ac33df4"><td class="memItemLeft" align="right" valign="top"><a id="a93220e80db37d3c5ddd3c9219ac33df4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Bytecode</b> (Op op, nonstd::string_view str, unsigned int flags)</td></tr>
-<tr class="separator:a93220e80db37d3c5ddd3c9219ac33df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdfb883e7d57d50d0c3217afb378bd0d"><td class="memItemLeft" align="right" valign="top"><a id="acdfb883e7d57d50d0c3217afb378bd0d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Bytecode</b> (Op op, json &amp;&amp;value, unsigned int flags)</td></tr>
-<tr class="separator:acdfb883e7d57d50d0c3217afb378bd0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a435fdb3e43054ea72b7d22284eb1536c"><td class="memItemLeft" align="right" valign="top"><a id="a435fdb3e43054ea72b7d22284eb1536c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> (Op op, unsigned int args=0)</td></tr>
+<tr class="separator:a435fdb3e43054ea72b7d22284eb1536c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fea818d512ab779371895e905fba3a6"><td class="memItemLeft" align="right" valign="top"><a id="a9fea818d512ab779371895e905fba3a6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> (Op op, nonstd::string_view str, unsigned int flags)</td></tr>
+<tr class="separator:a9fea818d512ab779371895e905fba3a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77f45d9b276ff672197cbd7bab7008c3"><td class="memItemLeft" align="right" valign="top"><a id="a77f45d9b276ff672197cbd7bab7008c3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> (Op op, json &amp;&amp;value, unsigned int flags)</td></tr>
+<tr class="separator:a77f45d9b276ff672197cbd7bab7008c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7296e2c82d020855a15563dee8c6bb73"><td class="memItemLeft" align="right" valign="top"><a id="a7296e2c82d020855a15563dee8c6bb73"></a>
+<tr class="memitem:af3a0463e0bb2854aef5b8d1eb049788b"><td class="memItemLeft" align="right" valign="top"><a id="af3a0463e0bb2854aef5b8d1eb049788b"></a>
 Op&#160;</td><td class="memItemRight" valign="bottom"><b>op</b> {Op::Nop}</td></tr>
-<tr class="separator:a7296e2c82d020855a15563dee8c6bb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af19f772fecb5af84b32080e85e002c77"><td class="memItemLeft" align="right" valign="top"><a id="af19f772fecb5af84b32080e85e002c77"></a>
+<tr class="separator:af3a0463e0bb2854aef5b8d1eb049788b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b13a9f970d4b85bdf3509542df365c5"><td class="memItemLeft" align="right" valign="top"><a id="a6b13a9f970d4b85bdf3509542df365c5"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>args</b>: 30</td></tr>
-<tr class="separator:af19f772fecb5af84b32080e85e002c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac09a0e0b72822136d532497ff3552dd2"><td class="memItemLeft" align="right" valign="top"><a id="ac09a0e0b72822136d532497ff3552dd2"></a>
+<tr class="separator:a6b13a9f970d4b85bdf3509542df365c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac94ab8a002bbe721edb4bf951d421234"><td class="memItemLeft" align="right" valign="top"><a id="ac94ab8a002bbe721edb4bf951d421234"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b>: 2</td></tr>
-<tr class="separator:ac09a0e0b72822136d532497ff3552dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaa73113909ff424530ef297a4d45425"><td class="memItemLeft" align="right" valign="top"><a id="aaaa73113909ff424530ef297a4d45425"></a>
+<tr class="separator:ac94ab8a002bbe721edb4bf951d421234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba1b62338f7c0f20fbceb1b228d87e2b"><td class="memItemLeft" align="right" valign="top"><a id="aba1b62338f7c0f20fbceb1b228d87e2b"></a>
 json&#160;</td><td class="memItemRight" valign="bottom"><b>value</b></td></tr>
-<tr class="separator:aaaa73113909ff424530ef297a4d45425"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1e2ab92a9cf481c37df99a693aa8fa4"><td class="memItemLeft" align="right" valign="top"><a id="ab1e2ab92a9cf481c37df99a693aa8fa4"></a>
+<tr class="separator:aba1b62338f7c0f20fbceb1b228d87e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba5bd754b9bf5ab60942edcd0b2ad1d"><td class="memItemLeft" align="right" valign="top"><a id="adba5bd754b9bf5ab60942edcd0b2ad1d"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>str</b></td></tr>
-<tr class="separator:ab1e2ab92a9cf481c37df99a693aa8fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:adba5bd754b9bf5ab60942edcd0b2ad1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/runner/work/inja/inja/include/inja/<a class="el" href="bytecode_8hpp_source.html">bytecode.hpp</a></li>
+<li>/home/runner/work/inja/inja/include/inja/<a class="el" href="node_8hpp_source.html">node.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['injaerror',['InjaError',['../structinja_1_1_inja_error.html',1,'inja']]]
+  ['jsonerror',['JsonError',['../structinja_1_1_json_error.html',1,'inja']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['environment',['Environment',['../classinja_1_1_environment.html',1,'inja']]]
+  ['fileerror',['FileError',['../structinja_1_1_file_error.html',1,'inja']]],
+  ['functionstorage',['FunctionStorage',['../classinja_1_1_function_storage.html',1,'inja']]]
 ];
