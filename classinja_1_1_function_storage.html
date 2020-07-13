@@ -67,7 +67,9 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="classinja_1_1_function_storage-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">inja::FunctionStorage Class Reference</div>  </div>
@@ -79,24 +81,113 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="function__storage_8hpp_source.html">function_storage.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aeb78440163bb7cd83add1d3dfbd31522"><td class="memItemLeft" align="right" valign="top"><a id="aeb78440163bb7cd83add1d3dfbd31522"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Operation</b> { <br />
+&#160;&#160;<b>Not</b>, 
+<b>And</b>, 
+<b>Or</b>, 
+<b>In</b>, 
+<br />
+&#160;&#160;<b>Equal</b>, 
+<b>NotEqual</b>, 
+<b>Greater</b>, 
+<b>GreaterEqual</b>, 
+<br />
+&#160;&#160;<b>Less</b>, 
+<b>LessEqual</b>, 
+<b>Add</b>, 
+<b>Subtract</b>, 
+<br />
+&#160;&#160;<b>Multiplication</b>, 
+<b>Division</b>, 
+<b>Power</b>, 
+<b>Modulo</b>, 
+<br />
+&#160;&#160;<b>At</b>, 
+<b>Default</b>, 
+<b>DivisibleBy</b>, 
+<b>Even</b>, 
+<br />
+&#160;&#160;<b>Exists</b>, 
+<b>ExistsInObject</b>, 
+<b>First</b>, 
+<b>Float</b>, 
+<br />
+&#160;&#160;<b>Int</b>, 
+<b>IsArray</b>, 
+<b>IsBoolean</b>, 
+<b>IsFloat</b>, 
+<br />
+&#160;&#160;<b>IsInteger</b>, 
+<b>IsNumber</b>, 
+<b>IsObject</b>, 
+<b>IsString</b>, 
+<br />
+&#160;&#160;<b>Last</b>, 
+<b>Length</b>, 
+<b>Lower</b>, 
+<b>Max</b>, 
+<br />
+&#160;&#160;<b>Min</b>, 
+<b>Odd</b>, 
+<b>Range</b>, 
+<b>Round</b>, 
+<br />
+&#160;&#160;<b>Sort</b>, 
+<b>Upper</b>, 
+<b>Callback</b>, 
+<b>ParenLeft</b>, 
+<br />
+&#160;&#160;<b>ParenRight</b>, 
+<b>None</b>
+<br />
+ }</td></tr>
+<tr class="separator:aeb78440163bb7cd83add1d3dfbd31522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4ba63f1aba4b057eead7c177d6ac0f3d"><td class="memItemLeft" align="right" valign="top"><a id="a4ba63f1aba4b057eead7c177d6ac0f3d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_builtin</b> (nonstd::string_view name, unsigned int num_args, Node::Op op)</td></tr>
-<tr class="separator:a4ba63f1aba4b057eead7c177d6ac0f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa867c578bb1351e57021ddd8ad44434"><td class="memItemLeft" align="right" valign="top"><a id="aaa867c578bb1351e57021ddd8ad44434"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_callback</b> (nonstd::string_view name, unsigned int num_args, const CallbackFunction &amp;function)</td></tr>
-<tr class="separator:aaa867c578bb1351e57021ddd8ad44434"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0596b8a9e74048e24388fe103c5909bd"><td class="memItemLeft" align="right" valign="top"><a id="a0596b8a9e74048e24388fe103c5909bd"></a>
-Node::Op&#160;</td><td class="memItemRight" valign="bottom"><b>find_builtin</b> (nonstd::string_view name, unsigned int num_args) const</td></tr>
-<tr class="separator:a0596b8a9e74048e24388fe103c5909bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40396b22bbc62701ec1f185b70a61404"><td class="memItemLeft" align="right" valign="top"><a id="a40396b22bbc62701ec1f185b70a61404"></a>
-CallbackFunction&#160;</td><td class="memItemRight" valign="bottom"><b>find_callback</b> (nonstd::string_view name, unsigned int num_args) const</td></tr>
-<tr class="separator:a40396b22bbc62701ec1f185b70a61404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d70e6ca8200f9023c1d73d9921a7ea8"><td class="memItemLeft" align="right" valign="top"><a id="a9d70e6ca8200f9023c1d73d9921a7ea8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_builtin</b> (nonstd::string_view name, int num_args, Operation op)</td></tr>
+<tr class="separator:a9d70e6ca8200f9023c1d73d9921a7ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb21c55f367cea9cb94d1c7ea56c61a1"><td class="memItemLeft" align="right" valign="top"><a id="aeb21c55f367cea9cb94d1c7ea56c61a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>add_callback</b> (nonstd::string_view name, int num_args, const CallbackFunction &amp;callback)</td></tr>
+<tr class="separator:aeb21c55f367cea9cb94d1c7ea56c61a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c65142e5a7d9d4d74440f83e1049785"><td class="memItemLeft" align="right" valign="top"><a id="a9c65142e5a7d9d4d74440f83e1049785"></a>
+<a class="el" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a>&#160;</td><td class="memItemRight" valign="bottom"><b>find_function</b> (nonstd::string_view name, int num_args) const</td></tr>
+<tr class="separator:a9c65142e5a7d9d4d74440f83e1049785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ac2639295aca0260ec320e1c71da3e35e"><td class="memItemLeft" align="right" valign="top"><a id="ac2639295aca0260ec320e1c71da3e35e"></a>
+const int&#160;</td><td class="memItemRight" valign="bottom"><b>VARIADIC</b> {-1}</td></tr>
+<tr class="separator:ac2639295aca0260ec320e1c71da3e35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5683dcfeef2867bc26892e656741b006"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::pair&lt; std::string, int &gt;, <a class="el" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>function_storage</b></td></tr>
+<tr class="separator:a5683dcfeef2867bc26892e656741b006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for builtin functions and user-defined callbacks. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5683dcfeef2867bc26892e656741b006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5683dcfeef2867bc26892e656741b006">&#9670;&nbsp;</a></span>function_storage</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::pair&lt;std::string, int&gt;, <a class="el" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a>&gt; inja::FunctionStorage::function_storage</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;at&quot;</span>, 2), FunctionData { Operation::At }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;default&quot;</span>, 2), FunctionData { Operation::Default }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;divisibleBy&quot;</span>, 2), FunctionData { Operation::DivisibleBy }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;even&quot;</span>, 1), FunctionData { Operation::Even }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;exists&quot;</span>, 1), FunctionData { Operation::Exists }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;existsIn&quot;</span>, 2), FunctionData { Operation::ExistsInObject }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;first&quot;</span>, 1), FunctionData { Operation::First }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;float&quot;</span>, 1), FunctionData { Operation::Float }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;int&quot;</span>, 1), FunctionData { Operation::Int }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isArray&quot;</span>, 1), FunctionData { Operation::IsArray }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isBoolean&quot;</span>, 1), FunctionData { Operation::IsBoolean }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isFloat&quot;</span>, 1), FunctionData { Operation::IsFloat }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isInteger&quot;</span>, 1), FunctionData { Operation::IsInteger }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isNumber&quot;</span>, 1), FunctionData { Operation::IsNumber }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isObject&quot;</span>, 1), FunctionData { Operation::IsObject }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;isString&quot;</span>, 1), FunctionData { Operation::IsString }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;last&quot;</span>, 1), FunctionData { Operation::Last }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;length&quot;</span>, 1), FunctionData { Operation::Length }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;lower&quot;</span>, 1), FunctionData { Operation::Lower }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;max&quot;</span>, 1), FunctionData { Operation::Max }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;min&quot;</span>, 1), FunctionData { Operation::Min }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;odd&quot;</span>, 1), FunctionData { Operation::Odd }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;range&quot;</span>, 1), FunctionData { Operation::Range }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;round&quot;</span>, 2), FunctionData { Operation::Round }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;sort&quot;</span>, 1), FunctionData { Operation::Sort }},</div><div class="line">    {std::make_pair(<span class="stringliteral">&quot;upper&quot;</span>, 1), FunctionData { Operation::Upper }},</div><div class="line">  }</div></div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/inja/inja/include/inja/<a class="el" href="function__storage_8hpp_source.html">function_storage.hpp</a></li>
 </ul>
 </div><!-- contents -->

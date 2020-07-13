@@ -110,10 +110,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinja_1_1_environment.html#a7020420515499399b851f03da31b685d">set_lstrip_blocks</a> (bool lstrip_blocks)</td></tr>
 <tr class="memdesc:a7020420515499399b851f03da31b685d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether to strip the spaces and tabs from the start of a line to a block. <br /></td></tr>
 <tr class="separator:a7020420515499399b851f03da31b685d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac56fdd02bbb73a7ad49ca0f8145b237b"><td class="memItemLeft" align="right" valign="top"><a id="ac56fdd02bbb73a7ad49ca0f8145b237b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinja_1_1_environment.html#ac56fdd02bbb73a7ad49ca0f8145b237b">set_element_notation</a> (ElementNotation notation)</td></tr>
-<tr class="memdesc:ac56fdd02bbb73a7ad49ca0f8145b237b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the element notation syntax. <br /></td></tr>
-<tr class="separator:ac56fdd02bbb73a7ad49ca0f8145b237b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a7f1d50859105cad3acad42024180f8"><td class="memItemLeft" align="right" valign="top"><a id="a5a7f1d50859105cad3acad42024180f8"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinja_1_1_environment.html#a5a7f1d50859105cad3acad42024180f8">set_search_included_templates_in_files</a> (bool search_in_files)</td></tr>
 <tr class="memdesc:a5a7f1d50859105cad3acad42024180f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the element notation syntax. <br /></td></tr>
@@ -161,9 +157,14 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>load_file</b> 
 <tr class="memitem:a63883423839a4c9651997e14ee9bd10b"><td class="memItemLeft" align="right" valign="top"><a id="a63883423839a4c9651997e14ee9bd10b"></a>
 json&#160;</td><td class="memItemRight" valign="bottom"><b>load_json</b> (const std::string &amp;filename)</td></tr>
 <tr class="separator:a63883423839a4c9651997e14ee9bd10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e21e8b7bbe982c12e0780cbd7223ec7"><td class="memItemLeft" align="right" valign="top"><a id="a5e21e8b7bbe982c12e0780cbd7223ec7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>add_callback</b> (const std::string &amp;name, unsigned int numArgs, const CallbackFunction &amp;callback)</td></tr>
-<tr class="separator:a5e21e8b7bbe982c12e0780cbd7223ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacf2afb515ec7efb0b844174093fed6d"><td class="memItemLeft" align="right" valign="top"><a id="aacf2afb515ec7efb0b844174093fed6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinja_1_1_environment.html#aacf2afb515ec7efb0b844174093fed6d">add_callback</a> (const std::string &amp;name, const CallbackFunction &amp;callback)</td></tr>
+<tr class="memdesc:aacf2afb515ec7efb0b844174093fed6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a variadic callback. <br /></td></tr>
+<tr class="separator:aacf2afb515ec7efb0b844174093fed6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accda3196054131f8e8cd484ef92c0627"><td class="memItemLeft" align="right" valign="top"><a id="accda3196054131f8e8cd484ef92c0627"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinja_1_1_environment.html#accda3196054131f8e8cd484ef92c0627">add_callback</a> (const std::string &amp;name, int num_args, const CallbackFunction &amp;callback)</td></tr>
+<tr class="memdesc:accda3196054131f8e8cd484ef92c0627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a callback with given number or arguments. <br /></td></tr>
+<tr class="separator:accda3196054131f8e8cd484ef92c0627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab34fc09b61acaaefbbe891036f049670"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classinja_1_1_environment.html#ab34fc09b61acaaefbbe891036f049670">include_template</a> (const std::string &amp;name, const <a class="el" href="structinja_1_1_template.html">Template</a> &amp;tmpl)</td></tr>
 <tr class="separator:ab34fc09b61acaaefbbe891036f049670"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

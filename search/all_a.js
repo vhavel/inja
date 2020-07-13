@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['template',['Template',['../structinja_1_1_template.html',1,'inja']]],
-  ['token',['Token',['../structinja_1_1_token.html',1,'inja']]]
+  ['renderconfig',['RenderConfig',['../structinja_1_1_render_config.html',1,'inja']]],
+  ['renderer',['Renderer',['../classinja_1_1_renderer.html',1,'inja']]],
+  ['rendererror',['RenderError',['../structinja_1_1_render_error.html',1,'inja']]]
 ];

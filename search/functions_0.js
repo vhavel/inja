@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['count_5fvariables',['count_variables',['../structinja_1_1_template.html#a6a46ed1ecf9994d6a2653d24f6ab34cf',1,'inja::Template']]]
+  ['add_5fcallback',['add_callback',['../classinja_1_1_environment.html#aacf2afb515ec7efb0b844174093fed6d',1,'inja::Environment::add_callback(const std::string &amp;name, const CallbackFunction &amp;callback)'],['../classinja_1_1_environment.html#accda3196054131f8e8cd484ef92c0627',1,'inja::Environment::add_callback(const std::string &amp;name, int num_args, const CallbackFunction &amp;callback)']]]
 ];

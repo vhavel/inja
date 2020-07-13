@@ -66,7 +66,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classinja_1_1_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -78,12 +77,60 @@ $(function() {
  <a href="classinja_1_1_renderer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="renderer_8hpp_source.html">renderer.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for inja::Renderer:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classinja_1_1_renderer.png" usemap="#inja::Renderer_map" alt=""/>
+  <map id="inja::Renderer_map" name="inja::Renderer_map">
+<area href="classinja_1_1_node_visitor.html" alt="inja::NodeVisitor" shape="rect" coords="0,0,104,24"/>
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a20526b53248660e0e1999cae0db82669"><td class="memItemLeft" align="right" valign="top"><a id="a20526b53248660e0e1999cae0db82669"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (const <a class="el" href="structinja_1_1_render_config.html">RenderConfig</a> &amp;config, const TemplateStorage &amp;included_templates, const <a class="el" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;callbacks)</td></tr>
-<tr class="separator:a20526b53248660e0e1999cae0db82669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad41cbbc7443d95c301c3952f55a44606"><td class="memItemLeft" align="right" valign="top"><a id="ad41cbbc7443d95c301c3952f55a44606"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (const <a class="el" href="structinja_1_1_render_config.html">RenderConfig</a> &amp;config, const TemplateStorage &amp;template_storage, const <a class="el" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;function_storage)</td></tr>
+<tr class="separator:ad41cbbc7443d95c301c3952f55a44606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1b305b25b089bcdc5687e07c2edc2a"><td class="memItemLeft" align="right" valign="top"><a id="a3b1b305b25b089bcdc5687e07c2edc2a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_block_node.html">BlockNode</a> &amp;node)</td></tr>
+<tr class="separator:a3b1b305b25b089bcdc5687e07c2edc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15606a6ab9640616699076ce22af3a2c"><td class="memItemLeft" align="right" valign="top"><a id="a15606a6ab9640616699076ce22af3a2c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_text_node.html">TextNode</a> &amp;node)</td></tr>
+<tr class="separator:a15606a6ab9640616699076ce22af3a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e685f5d16da04271c096e9ad1b4926f"><td class="memItemLeft" align="right" valign="top"><a id="a6e685f5d16da04271c096e9ad1b4926f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_expression_node.html">ExpressionNode</a> &amp;)</td></tr>
+<tr class="separator:a6e685f5d16da04271c096e9ad1b4926f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac8ba968ee18a1ae336fad8b3854270"><td class="memItemLeft" align="right" valign="top"><a id="a7ac8ba968ee18a1ae336fad8b3854270"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_literal_node.html">LiteralNode</a> &amp;node)</td></tr>
+<tr class="separator:a7ac8ba968ee18a1ae336fad8b3854270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6470e6bf0dfe67581d23fa66fbd8bbf8"><td class="memItemLeft" align="right" valign="top"><a id="a6470e6bf0dfe67581d23fa66fbd8bbf8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_json_node.html">JsonNode</a> &amp;node)</td></tr>
+<tr class="separator:a6470e6bf0dfe67581d23fa66fbd8bbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa39fe3c7768fcba10020469aa199c809"><td class="memItemLeft" align="right" valign="top"><a id="aa39fe3c7768fcba10020469aa199c809"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_function_node.html">FunctionNode</a> &amp;node)</td></tr>
+<tr class="separator:aa39fe3c7768fcba10020469aa199c809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace49225a5875794391978d44a684b645"><td class="memItemLeft" align="right" valign="top"><a id="ace49225a5875794391978d44a684b645"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_expression_list_node.html">ExpressionListNode</a> &amp;node)</td></tr>
+<tr class="separator:ace49225a5875794391978d44a684b645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad515229392232c8f3e86c3e81d8160b6"><td class="memItemLeft" align="right" valign="top"><a id="ad515229392232c8f3e86c3e81d8160b6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_statement_node.html">StatementNode</a> &amp;)</td></tr>
+<tr class="separator:ad515229392232c8f3e86c3e81d8160b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3657a7e7731a18e45678938bade8059a"><td class="memItemLeft" align="right" valign="top"><a id="a3657a7e7731a18e45678938bade8059a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_for_statement_node.html">ForStatementNode</a> &amp;)</td></tr>
+<tr class="separator:a3657a7e7731a18e45678938bade8059a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4109beb07a203fb1cff145cd31756e8"><td class="memItemLeft" align="right" valign="top"><a id="ad4109beb07a203fb1cff145cd31756e8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_for_array_statement_node.html">ForArrayStatementNode</a> &amp;node)</td></tr>
+<tr class="separator:ad4109beb07a203fb1cff145cd31756e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0553537d0757fb281ce4986e08052d89"><td class="memItemLeft" align="right" valign="top"><a id="a0553537d0757fb281ce4986e08052d89"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_for_object_statement_node.html">ForObjectStatementNode</a> &amp;node)</td></tr>
+<tr class="separator:a0553537d0757fb281ce4986e08052d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df1454d1feca0db668fd70e8d0cc3fe"><td class="memItemLeft" align="right" valign="top"><a id="a7df1454d1feca0db668fd70e8d0cc3fe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_if_statement_node.html">IfStatementNode</a> &amp;node)</td></tr>
+<tr class="separator:a7df1454d1feca0db668fd70e8d0cc3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5866510a9a987e1531f5c11fc1830e1c"><td class="memItemLeft" align="right" valign="top"><a id="a5866510a9a987e1531f5c11fc1830e1c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>visit</b> (const <a class="el" href="classinja_1_1_include_statement_node.html">IncludeStatementNode</a> &amp;node)</td></tr>
+<tr class="separator:a5866510a9a987e1531f5c11fc1830e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace82a1b1e1db796e94c7a346c71defa2"><td class="memItemLeft" align="right" valign="top"><a id="ace82a1b1e1db796e94c7a346c71defa2"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>render_to</b> (std::ostream &amp;os, const <a class="el" href="structinja_1_1_template.html">Template</a> &amp;tmpl, const json &amp;data, json *loop_data=nullptr)</td></tr>
 <tr class="separator:ace82a1b1e1db796e94c7a346c71defa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
