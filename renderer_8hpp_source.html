@@ -375,7 +375,7 @@ $(function() {
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keywordflow">case</span> Op::Power: {</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      <span class="keywordflow">if</span> (args[0]-&gt;is_number_integer() &amp;&amp; args[1]-&gt;get&lt;int&gt;() &gt;= 0) {</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordtype">int</span> result = std::pow(args[0]-&gt;get&lt;int&gt;(), args[1]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keywordtype">int</span> result = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::pow(args[0]-&gt;get&lt;int&gt;(), args[1]-&gt;get&lt;int&gt;()));</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        result_ptr = std::make_shared&lt;json&gt;(std::move(result));</div>
 <div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        json_tmp_stack.push_back(result_ptr);</div>
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      } <span class="keywordflow">else</span> {</div>
@@ -694,27 +694,27 @@ $(function() {
 <div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
 <div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_RENDERER_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassinja_1_1_set_statement_node_html"><div class="ttname"><a href="classinja_1_1_set_statement_node.html">inja::SetStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:332</div></div>
-<div class="ttc" id="aclassinja_1_1_for_array_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_array_statement_node.html">inja::ForArrayStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:280</div></div>
-<div class="ttc" id="aclassinja_1_1_statement_node_html"><div class="ttname"><a href="classinja_1_1_statement_node.html">inja::StatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:262</div></div>
-<div class="ttc" id="aclassinja_1_1_json_node_html"><div class="ttname"><a href="classinja_1_1_json_node.html">inja::JsonNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:108</div></div>
+<div class="ttc" id="aclassinja_1_1_set_statement_node_html"><div class="ttname"><a href="classinja_1_1_set_statement_node.html">inja::SetStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:334</div></div>
+<div class="ttc" id="aclassinja_1_1_for_array_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_array_statement_node.html">inja::ForArrayStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:282</div></div>
+<div class="ttc" id="aclassinja_1_1_statement_node_html"><div class="ttname"><a href="classinja_1_1_statement_node.html">inja::StatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:264</div></div>
+<div class="ttc" id="aclassinja_1_1_json_node_html"><div class="ttname"><a href="classinja_1_1_json_node.html">inja::JsonNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:110</div></div>
 <div class="ttc" id="aclassinja_1_1_node_visitor_html"><div class="ttname"><a href="classinja_1_1_node_visitor.html">inja::NodeVisitor</a></div><div class="ttdef"><b>Definition:</b> node.hpp:34</div></div>
-<div class="ttc" id="aclassinja_1_1_text_node_html"><div class="ttname"><a href="classinja_1_1_text_node.html">inja::TextNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:77</div></div>
+<div class="ttc" id="aclassinja_1_1_text_node_html"><div class="ttname"><a href="classinja_1_1_text_node.html">inja::TextNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:79</div></div>
 <div class="ttc" id="astructinja_1_1_render_config_html"><div class="ttname"><a href="structinja_1_1_render_config.html">inja::RenderConfig</a></div><div class="ttdoc">Class for render configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:70</div></div>
 <div class="ttc" id="aclassinja_1_1_renderer_html"><div class="ttname"><a href="classinja_1_1_renderer.html">inja::Renderer</a></div><div class="ttdoc">Class for rendering a Template with data.</div><div class="ttdef"><b>Definition:</b> renderer.hpp:25</div></div>
 <div class="ttc" id="aclassinja_1_1_function_storage_html"><div class="ttname"><a href="classinja_1_1_function_storage.html">inja::FunctionStorage</a></div><div class="ttdoc">Class for builtin functions and user-defined callbacks.</div><div class="ttdef"><b>Definition:</b> function_storage.hpp:21</div></div>
 <div class="ttc" id="astructinja_1_1_render_error_html"><div class="ttname"><a href="structinja_1_1_render_error.html">inja::RenderError</a></div><div class="ttdef"><b>Definition:</b> exceptions.hpp:35</div></div>
-<div class="ttc" id="aclassinja_1_1_expression_list_node_html"><div class="ttname"><a href="classinja_1_1_expression_list_node.html">inja::ExpressionListNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:250</div></div>
-<div class="ttc" id="aclassinja_1_1_block_node_html"><div class="ttname"><a href="classinja_1_1_block_node.html">inja::BlockNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:66</div></div>
+<div class="ttc" id="aclassinja_1_1_expression_list_node_html"><div class="ttname"><a href="classinja_1_1_expression_list_node.html">inja::ExpressionListNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:252</div></div>
+<div class="ttc" id="aclassinja_1_1_block_node_html"><div class="ttname"><a href="classinja_1_1_block_node.html">inja::BlockNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:68</div></div>
 <div class="ttc" id="astructinja_1_1_source_location_html"><div class="ttname"><a href="structinja_1_1_source_location.html">inja::SourceLocation</a></div><div class="ttdef"><b>Definition:</b> exceptions.hpp:11</div></div>
-<div class="ttc" id="aclassinja_1_1_expression_node_html"><div class="ttname"><a href="classinja_1_1_expression_node.html">inja::ExpressionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:88</div></div>
-<div class="ttc" id="aclassinja_1_1_if_statement_node_html"><div class="ttname"><a href="classinja_1_1_if_statement_node.html">inja::IfStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:303</div></div>
-<div class="ttc" id="aclassinja_1_1_function_node_html"><div class="ttname"><a href="classinja_1_1_function_node.html">inja::FunctionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:131</div></div>
-<div class="ttc" id="aclassinja_1_1_for_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_statement_node.html">inja::ForStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:269</div></div>
-<div class="ttc" id="aclassinja_1_1_ast_node_html"><div class="ttname"><a href="classinja_1_1_ast_node.html">inja::AstNode</a></div><div class="ttdoc">Base node class for the abstract syntax tree (AST).</div><div class="ttdef"><b>Definition:</b> node.hpp:55</div></div>
-<div class="ttc" id="aclassinja_1_1_include_statement_node_html"><div class="ttname"><a href="classinja_1_1_include_statement_node.html">inja::IncludeStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:321</div></div>
-<div class="ttc" id="aclassinja_1_1_literal_node_html"><div class="ttname"><a href="classinja_1_1_literal_node.html">inja::LiteralNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:97</div></div>
-<div class="ttc" id="aclassinja_1_1_for_object_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_object_statement_node.html">inja::ForObjectStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:291</div></div>
+<div class="ttc" id="aclassinja_1_1_expression_node_html"><div class="ttname"><a href="classinja_1_1_expression_node.html">inja::ExpressionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:90</div></div>
+<div class="ttc" id="aclassinja_1_1_if_statement_node_html"><div class="ttname"><a href="classinja_1_1_if_statement_node.html">inja::IfStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:305</div></div>
+<div class="ttc" id="aclassinja_1_1_function_node_html"><div class="ttname"><a href="classinja_1_1_function_node.html">inja::FunctionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:133</div></div>
+<div class="ttc" id="aclassinja_1_1_for_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_statement_node.html">inja::ForStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:271</div></div>
+<div class="ttc" id="aclassinja_1_1_ast_node_html"><div class="ttname"><a href="classinja_1_1_ast_node.html">inja::AstNode</a></div><div class="ttdoc">Base node class for the abstract syntax tree (AST).</div><div class="ttdef"><b>Definition:</b> node.hpp:57</div></div>
+<div class="ttc" id="aclassinja_1_1_include_statement_node_html"><div class="ttname"><a href="classinja_1_1_include_statement_node.html">inja::IncludeStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:323</div></div>
+<div class="ttc" id="aclassinja_1_1_literal_node_html"><div class="ttname"><a href="classinja_1_1_literal_node.html">inja::LiteralNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:99</div></div>
+<div class="ttc" id="aclassinja_1_1_for_object_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_object_statement_node.html">inja::ForObjectStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:293</div></div>
 <div class="ttc" id="astructinja_1_1_template_html"><div class="ttname"><a href="structinja_1_1_template.html">inja::Template</a></div><div class="ttdoc">The main inja Template.</div><div class="ttdef"><b>Definition:</b> template.hpp:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
