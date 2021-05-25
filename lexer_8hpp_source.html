@@ -122,7 +122,7 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">if</span> (tok_start &gt;= m_in.size()) {</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keywordflow">return</span> make_token(Token::Kind::Eof);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">char</span> ch = m_in[tok_start];</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> ch = m_in[tok_start];</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39; &#39;</span> || ch == <span class="charliteral">&#39;\t&#39;</span> || ch == <span class="charliteral">&#39;\r&#39;</span>) {</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      tok_start += 1;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keywordflow">goto</span> again;</div>
@@ -132,7 +132,7 @@ $(function() {
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">if</span> (!close_trim.empty() &amp;&amp; inja::string_view::starts_with(m_in.substr(tok_start), close_trim)) {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      state = State::Text;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      pos = tok_start + close_trim.size();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <a class="code" href="structinja_1_1_token.html">Token</a> tok = make_token(closeKind);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keyword">const</span> <a class="code" href="structinja_1_1_token.html">Token</a> tok = make_token(closeKind);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      skip_whitespaces_and_newlines();</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keywordflow">return</span> tok;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
@@ -140,7 +140,7 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span> (inja::string_view::starts_with(m_in.substr(tok_start), close)) {</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      state = State::Text;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      pos = tok_start + close.size();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <a class="code" href="structinja_1_1_token.html">Token</a> tok = make_token(closeKind);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">const</span> <a class="code" href="structinja_1_1_token.html">Token</a> tok = make_token(closeKind);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keywordflow">if</span> (trim) {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        skip_whitespaces_and_first_newline();</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      }</div>
@@ -159,7 +159,7 @@ $(function() {
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keywordflow">return</span> scan_id();</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    }</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    MinusState current_minus_state = minus_state;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keyword">const</span> MinusState current_minus_state = minus_state;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span> (minus_state == MinusState::Operator) {</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      minus_state = MinusState::Number;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
@@ -254,7 +254,7 @@ $(function() {
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keywordflow">if</span> (pos &gt;= m_in.size()) {</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      }</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <span class="keywordtype">char</span> ch = m_in[pos];</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> ch = m_in[pos];</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="keywordflow">if</span> (!std::isalnum(ch) &amp;&amp; ch != <span class="charliteral">&#39;.&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;/&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;_&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;-&#39;</span>) {</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      }</div>
@@ -268,7 +268,7 @@ $(function() {
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <span class="keywordflow">if</span> (pos &gt;= m_in.size()) {</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordtype">char</span> ch = m_in[pos];</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> ch = m_in[pos];</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="comment">// be very permissive in lexer (we&#39;ll catch errors when conversion happens)</span></div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      <span class="keywordflow">if</span> (!std::isdigit(ch) &amp;&amp; ch != <span class="charliteral">&#39;.&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;e&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;E&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;+&#39;</span> &amp;&amp; ch != <span class="charliteral">&#39;-&#39;</span>) {</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">break</span>;</div>
@@ -284,7 +284,7 @@ $(function() {
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      <span class="keywordflow">if</span> (pos &gt;= m_in.size()) {</div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      }</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="keywordtype">char</span> ch = m_in[pos++];</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> ch = m_in[pos++];</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39;\\&#39;</span>) {</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        escape = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!escape &amp;&amp; ch == m_in[tok_start]) {</div>
@@ -373,7 +373,7 @@ $(function() {
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">default</span>:</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keywordflow">case</span> State::Text: {</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="comment">// fast-scan to first open character</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keywordtype">size_t</span> open_start = m_in.substr(pos).find_first_of(config.open_chars);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">size_t</span> open_start = m_in.substr(pos).find_first_of(config.open_chars);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      <span class="keywordflow">if</span> (open_start == nonstd::string_view::npos) {</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="comment">// didn&#39;t find open, return remaining text as text token</span></div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        pos = m_in.size();</div>

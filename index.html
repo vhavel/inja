@@ -241,16 +241,7 @@ $(function() {
 <div class="line">render(<span class="stringliteral">&quot;{{ isString(neighbour) }}&quot;</span>, data); <span class="comment">// &quot;true&quot;</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{{ isArray(guests) }}&quot;</span>, data); <span class="comment">// &quot;true&quot;</span></div>
 <div class="line"><span class="comment">// Implemented type checks: isArray, isBoolean, isFloat, isInteger, isNumber, isObject, isString,</span></div>
-</div><!-- fragment --><h3>Whitespace Control</h3>
-<p>In the default configuration, no whitespace is removed while rendering the file. To support a more readable template style, you can configure the environment to control whitespaces before and after a statement automatically. While enabling <code>set_trim_blocks</code> removes the first newline after a statement, <code>set_lstrip_blocks</code> strips tabs and spaces from the beginning of a line to the start of a block.</p>
-<div class="fragment"><div class="line">Environment env;</div>
-<div class="line">env.set_trim_blocks(<span class="keyword">true</span>);</div>
-<div class="line">env.set_lstrip_blocks(<span class="keyword">true</span>);</div>
-</div><!-- fragment --><p>With both <code>trim_blocks</code> and <code>lstrip_blocks</code> enabled, you can put statements on their own lines. Furthermore, you can also strip whitespaces for both statements and expressions by hand. If you add a minus sign (<code>-</code>) to the start or end, the whitespaces before or after that block will be removed:</p>
-<div class="fragment"><div class="line">render(<span class="stringliteral">&quot;Hello       {{- name -}}     !&quot;</span>, data); <span class="comment">// &quot;Hello Inja!&quot;</span></div>
-<div class="line">render(<span class="stringliteral">&quot;{% if neighbour in guests -%}   I was there{% endif -%}   !&quot;</span>, data); <span class="comment">// Renders without any whitespaces</span></div>
-</div><!-- fragment --><p>Stripping behind a statement or expression also removes any newlines.</p>
-<h3>Callbacks</h3>
+</div><!-- fragment --><h3>Callbacks</h3>
 <p>You can create your own and more complex functions with callbacks. These are implemented with <code>std::function</code>, so you can for example use C++ lambdas. Inja <code>Arguments</code> are a vector of json pointers. </p><div class="fragment"><div class="line">Environment env;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/*</span></div>
@@ -285,7 +276,44 @@ $(function() {
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;logging: &quot;</span> &lt;&lt; args[0] &lt;&lt; std::endl;</div>
 <div class="line">});</div>
 <div class="line">env.render(<span class="stringliteral">&quot;{{ log(neighbour) }}&quot;</span>, data); <span class="comment">// Prints nothing to result, only to cout...</span></div>
-</div><!-- fragment --><h3>Comments</h3>
+</div><!-- fragment --><h3>Template Inheritance</h3>
+<p>Template inheritance allows you to build a base <em>skeleton</em> template that contains all the common elements and defines blocks that child templates can override. Lets show an example: The base template </p><div class="fragment"><div class="line">&lt;!DOCTYPE html&gt;</div>
+<div class="line">&lt;html&gt;</div>
+<div class="line">&lt;head&gt;</div>
+<div class="line">  {% block head %}</div>
+<div class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;</div>
+<div class="line">  &lt;title&gt;{% block title %}{% endblock %} - My Webpage&lt;/title&gt;</div>
+<div class="line">  {% endblock %}</div>
+<div class="line">&lt;/head&gt;</div>
+<div class="line">&lt;body&gt;</div>
+<div class="line">  &lt;div id=&quot;content&quot;&gt;{% block content %}{% endblock %}&lt;/div&gt;</div>
+<div class="line">&lt;/body&gt;</div>
+<div class="line">&lt;/html&gt;</div>
+</div><!-- fragment --><p>contains three <code>blocks</code> that child templates can fill in. The child template </p><div class="fragment"><div class="line">{% extends &quot;base.html&quot; %}</div>
+<div class="line">{% block title %}Index{% endblock %}</div>
+<div class="line">{% block head %}</div>
+<div class="line">  {{ super() }}</div>
+<div class="line">  &lt;style type=&quot;text/css&quot;&gt;</div>
+<div class="line">    .important { color: #336699; }</div>
+<div class="line">  &lt;/style&gt;</div>
+<div class="line">{% endblock %}</div>
+<div class="line">{% block content %}</div>
+<div class="line">  &lt;h1&gt;Index&lt;/h1&gt;</div>
+<div class="line">  &lt;p class=&quot;important&quot;&gt;</div>
+<div class="line">    Welcome to my blog!</div>
+<div class="line">  &lt;/p&gt;</div>
+<div class="line">{% endblock %}</div>
+</div><!-- fragment --><p>calls a parent template with the <code>extends</code> keyword; it should be the first element in the template. It is possible to render the contents of the parent block by calling <code>super()</code>. In the case of multiple levels of <code>{% extends %}</code>, super references may be called with an argument (e.g. <code>super(2)</code>) to skip levels in the inheritance tree.</p>
+<h3>Whitespace Control</h3>
+<p>In the default configuration, no whitespace is removed while rendering the file. To support a more readable template style, you can configure the environment to control whitespaces before and after a statement automatically. While enabling <code>set_trim_blocks</code> removes the first newline after a statement, <code>set_lstrip_blocks</code> strips tabs and spaces from the beginning of a line to the start of a block.</p>
+<div class="fragment"><div class="line">Environment env;</div>
+<div class="line">env.set_trim_blocks(<span class="keyword">true</span>);</div>
+<div class="line">env.set_lstrip_blocks(<span class="keyword">true</span>);</div>
+</div><!-- fragment --><p>With both <code>trim_blocks</code> and <code>lstrip_blocks</code> enabled, you can put statements on their own lines. Furthermore, you can also strip whitespaces for both statements and expressions by hand. If you add a minus sign (<code>-</code>) to the start or end, the whitespaces before or after that block will be removed:</p>
+<div class="fragment"><div class="line">render(<span class="stringliteral">&quot;Hello       {{- name -}}     !&quot;</span>, data); <span class="comment">// &quot;Hello Inja!&quot;</span></div>
+<div class="line">render(<span class="stringliteral">&quot;{% if neighbour in guests -%}   I was there{% endif -%}   !&quot;</span>, data); <span class="comment">// Renders without any whitespaces</span></div>
+</div><!-- fragment --><p>Stripping behind a statement or expression also removes any newlines.</p>
+<h3>Comments</h3>
 <p>Comments can be written with the <code>{# ... #}</code> syntax. </p><div class="fragment"><div class="line">render(<span class="stringliteral">&quot;Hello{# Todo #}!&quot;</span>, data); <span class="comment">// &quot;Hello!&quot;</span></div>
 </div><!-- fragment --><h3>Exceptions</h3>
 <p>Inja uses exceptions to handle ill-formed template input. However, exceptions can be switched off with either using the compiler flag <code>-fno-exceptions</code> or by defining the symbol <code>INJA_NOEXCEPTION</code>. In this case, exceptions are replaced by <code>abort()</code> calls.</p>
