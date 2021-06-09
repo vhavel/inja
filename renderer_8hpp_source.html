@@ -255,10 +255,10 @@ $(function() {
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_json_node.html">JsonNode</a>&amp; node) {</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">if</span> (json_additional_data.contains(node.ptr)) {</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      json_eval_stack.push(&amp;(json_additional_data[node.ptr]));</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (json_input-&gt;contains(node.ptr)) {</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;      json_eval_stack.push(&amp;(*json_input)[node.ptr]);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="comment">// Try to evaluate as a no-argument callback</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> function_data = function_storage.find_function(node.name, 0);</div>
@@ -733,32 +733,35 @@ $(function() {
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  }</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
 <div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_set_statement_node.html">SetStatementNode</a>&amp; node) {</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    json_additional_data[node.key] = *eval_expression_list(node.expression);</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  }</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160; </div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  <a class="code" href="classinja_1_1_renderer.html">Renderer</a>(<span class="keyword">const</span> <a class="code" href="structinja_1_1_render_config.html">RenderConfig</a>&amp; config, <span class="keyword">const</span> TemplateStorage &amp;template_storage, <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;function_storage)</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;      : config(config), template_storage(template_storage), function_storage(function_storage) { }</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;  <span class="keywordtype">void</span> render_to(std::ostream &amp;os, <span class="keyword">const</span> <a class="code" href="structinja_1_1_template.html">Template</a> &amp;tmpl, <span class="keyword">const</span> json &amp;data, json *loop_data = <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    output_stream = &amp;os;</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    current_template = &amp;tmpl;</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    json_input = &amp;data;</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    <span class="keywordflow">if</span> (loop_data) {</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;      json_additional_data = *loop_data;</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;      current_loop_data = &amp;json_additional_data[<span class="stringliteral">&quot;loop&quot;</span>];</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    }</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160; </div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;    template_stack.emplace_back(current_template);</div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    current_template-&gt;root.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    std::string ptr = node.key;</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    replace_substring(ptr, <span class="stringliteral">&quot;.&quot;</span>, <span class="stringliteral">&quot;/&quot;</span>);</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    ptr = <span class="stringliteral">&quot;/&quot;</span> + ptr;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    json_additional_data[nlohmann::json::json_pointer(ptr)] = *eval_expression_list(node.expression);</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  }</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160; </div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;  <a class="code" href="classinja_1_1_renderer.html">Renderer</a>(<span class="keyword">const</span> <a class="code" href="structinja_1_1_render_config.html">RenderConfig</a>&amp; config, <span class="keyword">const</span> TemplateStorage &amp;template_storage, <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;function_storage)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      : config(config), template_storage(template_storage), function_storage(function_storage) { }</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; </div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  <span class="keywordtype">void</span> render_to(std::ostream &amp;os, <span class="keyword">const</span> <a class="code" href="structinja_1_1_template.html">Template</a> &amp;tmpl, <span class="keyword">const</span> json &amp;data, json *loop_data = <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;    output_stream = &amp;os;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    current_template = &amp;tmpl;</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    json_input = &amp;data;</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    <span class="keywordflow">if</span> (loop_data) {</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      json_additional_data = *loop_data;</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;      current_loop_data = &amp;json_additional_data[<span class="stringliteral">&quot;loop&quot;</span>];</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    }</div>
 <div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; </div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    json_tmp_stack.clear();</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;  }</div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;};</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160; </div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;} <span class="comment">// namespace inja</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_RENDERER_HPP_</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    template_stack.emplace_back(current_template);</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    current_template-&gt;root.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    json_tmp_stack.clear();</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;  }</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;};</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160; </div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;} <span class="comment">// namespace inja</span></div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; </div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_RENDERER_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassinja_1_1_set_statement_node_html"><div class="ttname"><a href="classinja_1_1_set_statement_node.html">inja::SetStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:362</div></div>
 <div class="ttc" id="aclassinja_1_1_for_array_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_array_statement_node.html">inja::ForArrayStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:286</div></div>
