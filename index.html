@@ -190,7 +190,7 @@ $(function() {
 </div><!-- fragment --><p>Inja will throw an <code><a class="el" href="structinja_1_1_render_error.html">inja::RenderError</a></code> if an included file is not found. To disable this error, you can call <code>env.set_throw_at_missing_includes(false)</code>.</p>
 <h4>Assignments</h4>
 <p>Variables can also be defined within the template using the set statment. </p><div class="fragment"><div class="line">render(<span class="stringliteral">&quot;{% set new_hour=23 %}{{ new_hour }}pm&quot;</span>, data); <span class="comment">// &quot;23pm&quot;</span></div>
-</div><!-- fragment --><p>json pointers can be used to set sub-objects: </p><div class="fragment"><div class="line">render(<span class="stringliteral">&quot;{% set time.start=18 %}{{ time.start }}pm&quot;</span>, data); <span class="comment">// &quot;18pm&quot;</span></div>
+<div class="line">render(<span class="stringliteral">&quot;{% set time.start=18 %}{{ time.start }}pm&quot;</span>, data); <span class="comment">// using json pointers</span></div>
 </div><!-- fragment --><p>Assignments only set the value within the rendering context; they do not modify the json object passed into the <code>render</code> call.</p>
 <h3>Functions</h3>
 <p>A few functions are implemented within the inja template syntax. They can be called with </p><div class="fragment"><div class="line"><span class="comment">// Upper and lower function, for string cases</span></div>
