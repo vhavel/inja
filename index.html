@@ -233,6 +233,9 @@ $(function() {
 <div class="line">render(<span class="stringliteral">&quot;Hello {{ default(neighbour, \&quot;my friend\&quot;) }}!&quot;</span>, data); <span class="comment">// &quot;Hello Peter!&quot;</span></div>
 <div class="line">render(<span class="stringliteral">&quot;Hello {{ default(colleague, \&quot;my friend\&quot;) }}!&quot;</span>, data); <span class="comment">// &quot;Hello my friend!&quot;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// Access an objects value dynamically</span></div>
+<div class="line">render(<span class="stringliteral">&quot;{{ at(time, \&quot;start\&quot;) }} to {{ time.end }}&quot;</span>, data); <span class="comment">// &quot;16 to 22&quot;</span></div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// Check if a key exists in an object</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{{ exists(\&quot;guests\&quot;) }}&quot;</span>, data); <span class="comment">// &quot;true&quot;</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{{ exists(\&quot;city\&quot;) }}&quot;</span>, data); <span class="comment">// &quot;false&quot;</span></div>
