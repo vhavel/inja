@@ -212,6 +212,10 @@ $(function() {
 <div class="line">render(<span class="stringliteral">&quot;{{ sort([3,2,1]) }}&quot;</span>, data); <span class="comment">// &quot;[1,2,3]&quot;</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{{ sort(guests) }}&quot;</span>, data); <span class="comment">// &quot;[\&quot;Jeff\&quot;, \&quot;Patrick\&quot;, \&quot;Tom\&quot;]&quot;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="comment">// Join a list with a separator</span></div>
+<div class="line">render(<span class="stringliteral">&quot;{{ join([1,2,3], \&quot; + \&quot;) }}&quot;</span>, data); <span class="comment">// &quot;1 + 2 + 3&quot;</span></div>
+<div class="line">render(<span class="stringliteral">&quot;{{ join(guests, \&quot;, \&quot;) }}&quot;</span>, data); <span class="comment">// &quot;Jeff, Patrick, Tom&quot;</span></div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// Round numbers to a given precision</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{{ round(3.1415, 0) }}&quot;</span>, data); <span class="comment">// 3</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{{ round(3.1415, 3) }}&quot;</span>, data); <span class="comment">// 3.142</span></div>
