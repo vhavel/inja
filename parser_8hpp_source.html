@@ -152,7 +152,7 @@ $(function() {
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">auto</span> <span class="keyword">function</span> = operator_stack.top();</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    operator_stack.pop();</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; <span class="keyword">function</span>-&gt;number_args; ++i) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <span class="keyword">function</span>-&gt;number_args; ++i) {</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keyword">function</span>-&gt;arguments.insert(function-&gt;arguments.begin(), arguments.back());</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      arguments.pop_back();</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
