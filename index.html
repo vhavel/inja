@@ -184,8 +184,8 @@ $(function() {
 <div class="line"><span class="comment">// Other template files are included relative from the current file location</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{% include \&quot;footer.html\&quot; %}&quot;</span>, data);</div>
 </div><!-- fragment --><p>If a corresponding template could not be found in the file system, the <em>include callback</em> is called: </p><div class="fragment"><div class="line"><span class="comment">// The callback takes the current path and the wanted include name and returns a template</span></div>
-<div class="line">env.set_include_callback([&amp;env](<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> std::string&amp; name) {</div>
-<div class="line">  <span class="keywordflow">return</span> env.parse(<span class="stringliteral">&quot;Hello {{ name }} from &quot;</span> + name);</div>
+<div class="line">env.set_include_callback([&amp;env](<span class="keyword">const</span> std::string&amp; path, <span class="keyword">const</span> std::string&amp; template_name) {</div>
+<div class="line">  <span class="keywordflow">return</span> env.parse(<span class="stringliteral">&quot;Hello {{ neighbour }} from &quot;</span> + template_name);</div>
 <div class="line">});</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// You can disable to search for templates in the file system via</span></div>
