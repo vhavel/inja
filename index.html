@@ -183,10 +183,14 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="comment">// Other template files are included relative from the current file location</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{% include \&quot;footer.html\&quot; %}&quot;</span>, data);</div>
+</div><!-- fragment --><p>If a corresponding template could not be found in the file system, the <em>include callback</em> is called: </p><div class="fragment"><div class="line">// The callback takes the current path and the wanted include name and returns a template</div>
+<div class="line">env.set_include_callback([&amp;env](const std::string&amp; path, const std::string&amp; name) {</div>
+<div class="line">  return env.parse(&quot;Hello {{ name }} from &quot; + name);</div>
+<div class="line">});</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// You can disable to search for templates in the file system via</span></div>
-<div class="line">env.set_search_included_templates_in_files(<span class="keyword">false</span>);</div>
-</div><!-- fragment --><p>Inja will throw an <code><a class="el" href="structinja_1_1_render_error.html">inja::RenderError</a></code> if an included file is not found. To disable this error, you can call <code>env.set_throw_at_missing_includes(false)</code>.</p>
+<div class="line">// You can disable to search for templates in the file system via</div>
+<div class="line">env.set_search_included_templates_in_files(false);</div>
+</div><!-- fragment --><p>Inja will throw an <code><a class="el" href="structinja_1_1_render_error.html">inja::RenderError</a></code> if an included file is not found and no callback is specified. To disable this error, you can call <code>env.set_throw_at_missing_includes(false)</code>.</p>
 <h4>Assignments</h4>
 <p>Variables can also be defined within the template using the set statment. </p><div class="fragment"><div class="line">render(<span class="stringliteral">&quot;{% set new_hour=23 %}{{ new_hour }}pm&quot;</span>, data); <span class="comment">// &quot;23pm&quot;</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{% set time.start=18 %}{{ time.start }}pm&quot;</span>, data); <span class="comment">// using json pointers</span></div>
