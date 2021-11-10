@@ -108,7 +108,7 @@ $(function() {
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">size_t</span> current_bracket_level {0};</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">size_t</span> current_brace_level {0};</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  nonstd::string_view json_literal_start;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  std::string_view json_literal_start;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="classinja_1_1_block_node.html">BlockNode</a> *current_block {<span class="keyword">nullptr</span>};</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="classinja_1_1_expression_list_node.html">ExpressionListNode</a> *current_expression_list {<span class="keyword">nullptr</span>};</div>
@@ -141,7 +141,7 @@ $(function() {
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> add_json_literal(<span class="keyword">const</span> <span class="keywordtype">char</span>* content_ptr) {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    nonstd::string_view json_text(json_literal_start.data(), tok.text.data() - json_literal_start.data() + tok.text.size());</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::string_view json_text(json_literal_start.data(), tok.text.data() - json_literal_start.data() + tok.text.size());</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    arguments.emplace_back(std::make_shared&lt;LiteralNode&gt;(json::parse(json_text), json_text.data() - content_ptr));</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
@@ -156,7 +156,7 @@ $(function() {
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    arguments.emplace_back(<span class="keyword">function</span>);</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> add_to_template_storage(nonstd::string_view path, std::string&amp; template_name) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> add_to_template_storage(std::string_view path, std::string&amp; template_name) {</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span> (template_storage.find(template_name) != template_storage.end()) {</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
@@ -437,7 +437,7 @@ $(function() {
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  }</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  <span class="keywordtype">bool</span> parse_statement(<a class="code" href="structinja_1_1_template.html">Template</a> &amp;tmpl, Token::Kind closing, nonstd::string_view path) {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  <span class="keywordtype">bool</span> parse_statement(<a class="code" href="structinja_1_1_template.html">Template</a> &amp;tmpl, Token::Kind closing, std::string_view path) {</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    <span class="keywordflow">if</span> (tok.kind != Token::Kind::Id) {</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    }</div>
@@ -639,7 +639,7 @@ $(function() {
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;  }</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160; </div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;  <span class="keywordtype">void</span> parse_into(<a class="code" href="structinja_1_1_template.html">Template</a> &amp;tmpl, nonstd::string_view path) {</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;  <span class="keywordtype">void</span> parse_into(<a class="code" href="structinja_1_1_template.html">Template</a> &amp;tmpl, std::string_view path) {</div>
 <div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    lexer.start(tmpl.content);</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    current_block = &amp;tmpl.root;</div>
 <div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
@@ -709,18 +709,18 @@ $(function() {
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                  TemplateStorage &amp;template_storage, <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;function_storage)</div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;      : config(parser_config), lexer(lexer_config), template_storage(template_storage), function_storage(function_storage) { }</div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <a class="code" href="structinja_1_1_template.html">Template</a> parse(nonstd::string_view input, nonstd::string_view path) {</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <a class="code" href="structinja_1_1_template.html">Template</a> parse(std::string_view input, std::string_view path) {</div>
 <div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keyword">auto</span> result = <a class="code" href="structinja_1_1_template.html">Template</a>(<span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(input));</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    parse_into(result, path);</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  }</div>
 <div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160; </div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  <a class="code" href="structinja_1_1_template.html">Template</a> parse(nonstd::string_view input) {</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  <a class="code" href="structinja_1_1_template.html">Template</a> parse(std::string_view input) {</div>
 <div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keywordflow">return</span> parse(input, <span class="stringliteral">&quot;./&quot;</span>);</div>
 <div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  }</div>
 <div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordtype">void</span> parse_into_template(<a class="code" href="structinja_1_1_template.html">Template</a>&amp; tmpl, nonstd::string_view filename) {</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    nonstd::string_view path = filename.substr(0, filename.find_last_of(<span class="stringliteral">&quot;/\\&quot;</span>) + 1);</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordtype">void</span> parse_into_template(<a class="code" href="structinja_1_1_template.html">Template</a>&amp; tmpl, std::string_view filename) {</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    std::string_view path = filename.substr(0, filename.find_last_of(<span class="stringliteral">&quot;/\\&quot;</span>) + 1);</div>
 <div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    <span class="comment">// StringRef path = sys::path::parent_path(filename);</span></div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <span class="keyword">auto</span> sub_parser = <a class="code" href="classinja_1_1_parser.html">Parser</a>(config, lexer.get_config(), template_storage, function_storage);</div>
@@ -743,12 +743,12 @@ $(function() {
 <div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_PARSER_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassinja_1_1_lexer_html"><div class="ttname"><a href="classinja_1_1_lexer.html">inja::Lexer</a></div><div class="ttdoc">Class for lexing an inja Template.</div><div class="ttdef"><b>Definition:</b> lexer.hpp:16</div></div>
-<div class="ttc" id="astructinja_1_1_lexer_config_html"><div class="ttname"><a href="structinja_1_1_lexer_config.html">inja::LexerConfig</a></div><div class="ttdoc">Class for lexer configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:15</div></div>
+<div class="ttc" id="astructinja_1_1_lexer_config_html"><div class="ttname"><a href="structinja_1_1_lexer_config.html">inja::LexerConfig</a></div><div class="ttdoc">Class for lexer configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:14</div></div>
 <div class="ttc" id="aclassinja_1_1_function_storage_html"><div class="ttname"><a href="classinja_1_1_function_storage.html">inja::FunctionStorage</a></div><div class="ttdoc">Class for builtin functions and user-defined callbacks.</div><div class="ttdef"><b>Definition:</b> function_storage.hpp:17</div></div>
 <div class="ttc" id="aclassinja_1_1_expression_list_node_html"><div class="ttname"><a href="classinja_1_1_expression_list_node.html">inja::ExpressionListNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:253</div></div>
 <div class="ttc" id="aclassinja_1_1_block_node_html"><div class="ttname"><a href="classinja_1_1_block_node.html">inja::BlockNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:69</div></div>
 <div class="ttc" id="aclassinja_1_1_parser_html"><div class="ttname"><a href="classinja_1_1_parser.html">inja::Parser</a></div><div class="ttdoc">Class for parsing an inja Template.</div><div class="ttdef"><b>Definition:</b> parser.hpp:26</div></div>
-<div class="ttc" id="astructinja_1_1_parser_config_html"><div class="ttname"><a href="structinja_1_1_parser_config.html">inja::ParserConfig</a></div><div class="ttdoc">Class for parser configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:67</div></div>
+<div class="ttc" id="astructinja_1_1_parser_config_html"><div class="ttname"><a href="structinja_1_1_parser_config.html">inja::ParserConfig</a></div><div class="ttdoc">Class for parser configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:66</div></div>
 <div class="ttc" id="astructinja_1_1_parser_error_html"><div class="ttname"><a href="structinja_1_1_parser_error.html">inja::ParserError</a></div><div class="ttdef"><b>Definition:</b> exceptions.hpp:29</div></div>
 <div class="ttc" id="astructinja_1_1_token_html"><div class="ttname"><a href="structinja_1_1_token.html">inja::Token</a></div><div class="ttdoc">Helper-class for the inja Lexer.</div><div class="ttdef"><b>Definition:</b> token.hpp:13</div></div>
 <div class="ttc" id="astructinja_1_1_template_html"><div class="ttname"><a href="structinja_1_1_template.html">inja::Template</a></div><div class="ttdoc">The main inja Template.</div><div class="ttdef"><b>Definition:</b> template.hpp:18</div></div>

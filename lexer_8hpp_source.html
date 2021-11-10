@@ -110,12 +110,12 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  State state;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  MinusState minus_state;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  nonstd::string_view m_in;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  std::string_view m_in;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keywordtype">size_t</span> tok_start;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">size_t</span> pos;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="structinja_1_1_token.html">Token</a> scan_body(nonstd::string_view close, Token::Kind closeKind, nonstd::string_view close_trim = nonstd::string_view(), <span class="keywordtype">bool</span> trim = <span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="structinja_1_1_token.html">Token</a> scan_body(std::string_view close, Token::Kind closeKind, std::string_view close_trim = std::string_view(), <span class="keywordtype">bool</span> trim = <span class="keyword">false</span>) {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  again:</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// skip whitespace (except for \n as it might be a close)</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">if</span> (tok_start &gt;= m_in.size()) {</div>
@@ -325,8 +325,8 @@ $(function() {
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  }</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keyword">static</span> nonstd::string_view clear_final_line_if_whitespace(nonstd::string_view text) {</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    nonstd::string_view result = text;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keyword">static</span> std::string_view clear_final_line_if_whitespace(std::string_view text) {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    std::string_view result = text;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">while</span> (!result.empty()) {</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">char</span> ch = result.back();</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keywordflow">if</span> (ch == <span class="charliteral">&#39; &#39;</span> || ch == <span class="charliteral">&#39;\t&#39;</span>) {</div>
@@ -347,7 +347,7 @@ $(function() {
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> get_source_location(m_in, tok_start);</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  }</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordtype">void</span> start(nonstd::string_view input) {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordtype">void</span> start(std::string_view input) {</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    m_in = input;</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    tok_start = 0;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    pos = 0;</div>
@@ -373,7 +373,7 @@ $(function() {
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    <span class="keywordflow">case</span> State::Text: {</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="comment">// fast-scan to first open character</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">size_t</span> open_start = m_in.substr(pos).find_first_of(config.open_chars);</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keywordflow">if</span> (open_start == nonstd::string_view::npos) {</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      <span class="keywordflow">if</span> (open_start == std::string_view::npos) {</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="comment">// didn&#39;t find open, return remaining text as text token</span></div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        pos = m_in.size();</div>
 <div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">return</span> make_token(Token::Kind::Text);</div>
@@ -381,7 +381,7 @@ $(function() {
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      pos += open_start;</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="comment">// try to match one of the opening sequences, and get the close</span></div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      nonstd::string_view open_str = m_in.substr(pos);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      std::string_view open_str = m_in.substr(pos);</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordtype">bool</span> must_lstrip = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordflow">if</span> (inja::string_view::starts_with(open_str, config.expression_open)) {</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">if</span> (inja::string_view::starts_with(open_str, config.expression_open_force_lstrip)) {</div>
@@ -415,7 +415,7 @@ $(function() {
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">goto</span> again;</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      }</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      nonstd::string_view text = string_view::slice(m_in, tok_start, pos);</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      std::string_view text = string_view::slice(m_in, tok_start, pos);</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">if</span> (must_lstrip) {</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        text = clear_final_line_if_whitespace(text);</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      }</div>
@@ -474,7 +474,7 @@ $(function() {
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordflow">case</span> State::CommentBody: {</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;      <span class="comment">// fast-scan to comment close</span></div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">size_t</span> end = m_in.substr(pos).find(config.comment_close);</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      <span class="keywordflow">if</span> (end == nonstd::string_view::npos) {</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      <span class="keywordflow">if</span> (end == std::string_view::npos) {</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        pos = m_in.size();</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keywordflow">return</span> make_token(Token::Kind::Eof);</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;      }</div>
@@ -505,7 +505,7 @@ $(function() {
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_LEXER_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassinja_1_1_lexer_html"><div class="ttname"><a href="classinja_1_1_lexer.html">inja::Lexer</a></div><div class="ttdoc">Class for lexing an inja Template.</div><div class="ttdef"><b>Definition:</b> lexer.hpp:16</div></div>
-<div class="ttc" id="astructinja_1_1_lexer_config_html"><div class="ttname"><a href="structinja_1_1_lexer_config.html">inja::LexerConfig</a></div><div class="ttdoc">Class for lexer configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:15</div></div>
+<div class="ttc" id="astructinja_1_1_lexer_config_html"><div class="ttname"><a href="structinja_1_1_lexer_config.html">inja::LexerConfig</a></div><div class="ttdoc">Class for lexer configuration.</div><div class="ttdef"><b>Definition:</b> config.hpp:14</div></div>
 <div class="ttc" id="astructinja_1_1_source_location_html"><div class="ttname"><a href="structinja_1_1_source_location.html">inja::SourceLocation</a></div><div class="ttdef"><b>Definition:</b> exceptions.hpp:9</div></div>
 <div class="ttc" id="astructinja_1_1_token_html"><div class="ttname"><a href="structinja_1_1_token.html">inja::Token</a></div><div class="ttdoc">Helper-class for the inja Lexer.</div><div class="ttdef"><b>Definition:</b> token.hpp:13</div></div>
 <!-- start footer part -->

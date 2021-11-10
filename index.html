@@ -330,7 +330,7 @@ $(function() {
 </div><!-- fragment --><h3>Exceptions</h3>
 <p>Inja uses exceptions to handle ill-formed template input. However, exceptions can be switched off with either using the compiler flag <code>-fno-exceptions</code> or by defining the symbol <code>INJA_NOEXCEPTION</code>. In this case, exceptions are replaced by <code>abort()</code> calls.</p>
 <h2>Supported compilers</h2>
-<p>Inja uses <code>string_view</code> from C++17, but includes the <a href="https://github.com/martinmoene/string-view-lite">polyfill</a> from martinmoene. This way, the minimum version is C++11. Currently, the following compilers are tested:</p>
+<p>Inja uses the <code>string_view</code> feature of the C++17 STL. Currently, the following compilers are tested:</p>
 <ul>
 <li>GCC 7 - 11 (and possibly later)</li>
 <li>Clang 4 - 12 (and possibly later)</li>
