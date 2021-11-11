@@ -90,7 +90,7 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span>TextNode;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">class </span>ExpressionNode;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span>LiteralNode;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>JsonNode;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span>DataNode;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">class </span>FunctionNode;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span>ExpressionListNode;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">class </span>StatementNode;</div>
@@ -112,7 +112,7 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_text_node.html">TextNode</a>&amp; node) = 0;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a>&amp; node) = 0;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_literal_node.html">LiteralNode</a>&amp; node) = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_json_node.html">JsonNode</a>&amp; node) = 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_data_node.html">DataNode</a>&amp; node) = 0;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_function_node.html">FunctionNode</a>&amp; node) = 0;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_expression_list_node.html">ExpressionListNode</a>&amp; node) = 0;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_statement_node.html">StatementNode</a>&amp; node) = 0;</div>
@@ -179,12 +179,12 @@ $(function() {
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classinja_1_1_json_node.html">  111</a></span>&#160;<span class="keyword">class </span><a class="code" href="classinja_1_1_json_node.html">JsonNode</a> : <span class="keyword">public</span> <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a> {</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classinja_1_1_data_node.html">  111</a></span>&#160;<span class="keyword">class </span><a class="code" href="classinja_1_1_data_node.html">DataNode</a> : <span class="keyword">public</span> <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a> {</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">const</span> std::string name;</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keyword">const</span> json::json_pointer ptr;</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">static</span> std::string convert_dot_to_json_ptr(std::string_view ptr_name) {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">static</span> std::string convert_dot_to_ptr(std::string_view ptr_name) {</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    std::string result;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">do</span> {</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      std::string_view part;</div>
@@ -195,7 +195,7 @@ $(function() {
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  }</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_json_node.html">JsonNode</a>(std::string_view ptr_name, <span class="keywordtype">size_t</span> pos) : <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a>(pos), name(ptr_name), ptr(json::json_pointer(convert_dot_to_json_ptr(ptr_name))) { }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_data_node.html">DataNode</a>(std::string_view ptr_name, <span class="keywordtype">size_t</span> pos) : <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a>(pos), name(ptr_name), ptr(json::json_pointer(convert_dot_to_ptr(ptr_name))) { }</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordtype">void</span> accept(<a class="code" href="classinja_1_1_node_visitor.html">NodeVisitor</a>&amp; v)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    v.visit(*<span class="keyword">this</span>);</div>
@@ -446,7 +446,7 @@ $(function() {
 <div class="ttc" id="aclassinja_1_1_set_statement_node_html"><div class="ttname"><a href="classinja_1_1_set_statement_node.html">inja::SetStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:359</div></div>
 <div class="ttc" id="aclassinja_1_1_for_array_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_array_statement_node.html">inja::ForArrayStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:283</div></div>
 <div class="ttc" id="aclassinja_1_1_statement_node_html"><div class="ttname"><a href="classinja_1_1_statement_node.html">inja::StatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:265</div></div>
-<div class="ttc" id="aclassinja_1_1_json_node_html"><div class="ttname"><a href="classinja_1_1_json_node.html">inja::JsonNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:111</div></div>
+<div class="ttc" id="aclassinja_1_1_data_node_html"><div class="ttname"><a href="classinja_1_1_data_node.html">inja::DataNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:111</div></div>
 <div class="ttc" id="aclassinja_1_1_node_visitor_html"><div class="ttname"><a href="classinja_1_1_node_visitor.html">inja::NodeVisitor</a></div><div class="ttdef"><b>Definition:</b> node.hpp:33</div></div>
 <div class="ttc" id="aclassinja_1_1_text_node_html"><div class="ttname"><a href="classinja_1_1_text_node.html">inja::TextNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:80</div></div>
 <div class="ttc" id="aclassinja_1_1_expression_list_node_html"><div class="ttname"><a href="classinja_1_1_expression_list_node.html">inja::ExpressionListNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:253</div></div>

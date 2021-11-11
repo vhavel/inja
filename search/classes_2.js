@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['environment_53',['Environment',['../classinja_1_1_environment.html',1,'inja']]],
-  ['expressionlistnode_54',['ExpressionListNode',['../classinja_1_1_expression_list_node.html',1,'inja']]],
-  ['expressionnode_55',['ExpressionNode',['../classinja_1_1_expression_node.html',1,'inja']]],
-  ['extendsstatementnode_56',['ExtendsStatementNode',['../classinja_1_1_extends_statement_node.html',1,'inja']]]
+  ['dataerror_53',['DataError',['../structinja_1_1_data_error.html',1,'inja']]],
+  ['datanode_54',['DataNode',['../classinja_1_1_data_node.html',1,'inja']]]
 ];

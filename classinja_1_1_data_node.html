@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inja: inja::JsonNode Class Reference</title>
+<title>Inja: inja::DataNode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>inja</b></li><li class="navelem"><a class="el" href="classinja_1_1_json_node.html">JsonNode</a></li>  </ul>
+<li class="navelem"><b>inja</b></li><li class="navelem"><a class="el" href="classinja_1_1_data_node.html">DataNode</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,17 +72,17 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="classinja_1_1_json_node-members.html">List of all members</a>  </div>
+<a href="classinja_1_1_data_node-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">inja::JsonNode Class Reference</div>  </div>
+<div class="title">inja::DataNode Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for inja::JsonNode:</div>
+Inheritance diagram for inja::DataNode:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classinja_1_1_json_node.png" usemap="#inja::JsonNode_map" alt=""/>
-  <map id="inja::JsonNode_map" name="inja::JsonNode_map">
+  <img src="classinja_1_1_data_node.png" usemap="#inja::DataNode_map" alt=""/>
+  <map id="inja::DataNode_map" name="inja::DataNode_map">
 <area href="classinja_1_1_expression_node.html" alt="inja::ExpressionNode" shape="rect" coords="0,56,130,80"/>
 <area href="classinja_1_1_ast_node.html" title="Base node class for the abstract syntax tree (AST)." alt="inja::AstNode" shape="rect" coords="0,0,130,24"/>
   </map>
@@ -90,12 +90,12 @@ Inheritance diagram for inja::JsonNode:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c5c804b9db1c635ad0d0de40ca4f655"><td class="memItemLeft" align="right" valign="top"><a id="a5c5c804b9db1c635ad0d0de40ca4f655"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>JsonNode</b> (std::string_view ptr_name, size_t pos)</td></tr>
-<tr class="separator:a5c5c804b9db1c635ad0d0de40ca4f655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01dbc859490f5e2dd14121cfdfb7e2e8"><td class="memItemLeft" align="right" valign="top"><a id="a01dbc859490f5e2dd14121cfdfb7e2e8"></a>
+<tr class="memitem:aa397d4b64e7e766f06dee78b2f0944e5"><td class="memItemLeft" align="right" valign="top"><a id="aa397d4b64e7e766f06dee78b2f0944e5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>DataNode</b> (std::string_view ptr_name, size_t pos)</td></tr>
+<tr class="separator:aa397d4b64e7e766f06dee78b2f0944e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d58b770f6bbbdfd510d924858f5deb"><td class="memItemLeft" align="right" valign="top"><a id="a85d58b770f6bbbdfd510d924858f5deb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>accept</b> (<a class="el" href="classinja_1_1_node_visitor.html">NodeVisitor</a> &amp;v) const</td></tr>
-<tr class="separator:a01dbc859490f5e2dd14121cfdfb7e2e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a85d58b770f6bbbdfd510d924858f5deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classinja_1_1_expression_node"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classinja_1_1_expression_node')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classinja_1_1_expression_node.html">inja::ExpressionNode</a></td></tr>
 <tr class="memitem:ac8595a20a68f2c929225250f0b83988b inherit pub_methods_classinja_1_1_expression_node"><td class="memItemLeft" align="right" valign="top"><a id="ac8595a20a68f2c929225250f0b83988b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ExpressionNode</b> (size_t pos)</td></tr>
@@ -107,18 +107,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>accept</b> (<a class=
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:affb11c4d84c73ee4f0a764b9d27d2f96"><td class="memItemLeft" align="right" valign="top"><a id="affb11c4d84c73ee4f0a764b9d27d2f96"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>convert_dot_to_json_ptr</b> (std::string_view ptr_name)</td></tr>
-<tr class="separator:affb11c4d84c73ee4f0a764b9d27d2f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a3fd7731e70997b3c47807a7933a87"><td class="memItemLeft" align="right" valign="top"><a id="a09a3fd7731e70997b3c47807a7933a87"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>convert_dot_to_ptr</b> (std::string_view ptr_name)</td></tr>
+<tr class="separator:a09a3fd7731e70997b3c47807a7933a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:afd939fe05c224949ae7fadbc19530c56"><td class="memItemLeft" align="right" valign="top"><a id="afd939fe05c224949ae7fadbc19530c56"></a>
+<tr class="memitem:ad5d7e6363cc42401869f48468e3f5397"><td class="memItemLeft" align="right" valign="top"><a id="ad5d7e6363cc42401869f48468e3f5397"></a>
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
-<tr class="separator:afd939fe05c224949ae7fadbc19530c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a076fb95ca4935311b99e79de6ad73078"><td class="memItemLeft" align="right" valign="top"><a id="a076fb95ca4935311b99e79de6ad73078"></a>
+<tr class="separator:ad5d7e6363cc42401869f48468e3f5397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac71878df54eb20cfd9a5176b398e3abf"><td class="memItemLeft" align="right" valign="top"><a id="ac71878df54eb20cfd9a5176b398e3abf"></a>
 const json::json_pointer&#160;</td><td class="memItemRight" valign="bottom"><b>ptr</b></td></tr>
-<tr class="separator:a076fb95ca4935311b99e79de6ad73078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ac71878df54eb20cfd9a5176b398e3abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classinja_1_1_ast_node"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classinja_1_1_ast_node')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classinja_1_1_ast_node.html">inja::AstNode</a></td></tr>
 <tr class="memitem:a3ad0f455e521591d23befe13e7063b76 inherit pub_attribs_classinja_1_1_ast_node"><td class="memItemLeft" align="right" valign="top"><a id="a3ad0f455e521591d23befe13e7063b76"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>pos</b></td></tr>
