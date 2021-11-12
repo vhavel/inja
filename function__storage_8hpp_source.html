@@ -81,9 +81,9 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>inja {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> Arguments = std::vector&lt;const json *&gt;;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> CallbackFunction = std::function&lt;json(Arguments &amp;args)&gt;;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> VoidCallbackFunction = std::function&lt;void(Arguments &amp;args)&gt;;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> Arguments = std::vector&lt;const json*&gt;;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> CallbackFunction = std::function&lt;json(Arguments&amp; args)&gt;;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> VoidCallbackFunction = std::function&lt;void(Arguments&amp; args)&gt;;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classinja_1_1_function_storage.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a> {</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
@@ -140,7 +140,7 @@ $(function() {
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  };</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structinja_1_1_function_storage_1_1_function_data.html">   71</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a> {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a>(<span class="keyword">const</span> Operation &amp;op, <span class="keyword">const</span> CallbackFunction &amp;cb = CallbackFunction{}) : operation(op), callback(cb) {}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="structinja_1_1_function_storage_1_1_function_data.html">FunctionData</a>(<span class="keyword">const</span> Operation&amp; op, <span class="keyword">const</span> CallbackFunction&amp; cb = CallbackFunction{}) : operation(op), callback(cb) {}</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">const</span> Operation operation;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">const</span> CallbackFunction callback;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  };</div>
@@ -185,7 +185,7 @@ $(function() {
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    function_storage.emplace(std::make_pair(<span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(name), num_args), FunctionData { op });</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  }</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">void</span> add_callback(std::string_view name, <span class="keywordtype">int</span> num_args, <span class="keyword">const</span> CallbackFunction &amp;callback) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">void</span> add_callback(std::string_view name, <span class="keywordtype">int</span> num_args, <span class="keyword">const</span> CallbackFunction&amp; callback) {</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    function_storage.emplace(std::make_pair(<span class="keyword">static_cast&lt;</span>std::string<span class="keyword">&gt;</span>(name), num_args), FunctionData { Operation::Callback, callback });</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>

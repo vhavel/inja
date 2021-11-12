@@ -106,7 +106,7 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    Number,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  };</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a> &amp;config;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a>&amp; config;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  State state;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  MinusState minus_state;</div>
@@ -341,7 +341,7 @@ $(function() {
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  }</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_lexer.html">Lexer</a>(<span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a> &amp;config) : config(config), state(State::Text), minus_state(MinusState::Number) {}</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_lexer.html">Lexer</a>(<span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a>&amp; config) : config(config), state(State::Text), minus_state(MinusState::Number) {}</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <a class="code" href="structinja_1_1_source_location.html">SourceLocation</a> current_position()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> get_source_location(m_in, tok_start);</div>
@@ -495,7 +495,7 @@ $(function() {
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    }</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  }</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  <span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a> &amp;get_config()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  <span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a>&amp; get_config()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keywordflow">return</span> config;</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  }</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;};</div>

@@ -94,11 +94,11 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span>inja {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classinja_1_1_parser.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="classinja_1_1_parser.html">Parser</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">const</span> <a class="code" href="structinja_1_1_parser_config.html">ParserConfig</a> &amp;config;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">const</span> <a class="code" href="structinja_1_1_parser_config.html">ParserConfig</a>&amp; config;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="classinja_1_1_lexer.html">Lexer</a> lexer;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  TemplateStorage &amp;template_storage;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;function_storage;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  TemplateStorage&amp; template_storage;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a>&amp; function_storage;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="structinja_1_1_token.html">Token</a> tok, peek_tok;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">bool</span> have_peek_tok {<span class="keyword">false</span>};</div>
@@ -119,7 +119,7 @@ $(function() {
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  std::stack&lt;ForStatementNode*&gt; for_statement_stack;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  std::stack&lt;BlockStatementNode*&gt; block_statement_stack;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> throw_parser_error(<span class="keyword">const</span> std::string &amp;message)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> throw_parser_error(<span class="keyword">const</span> std::string&amp; message)<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    INJA_THROW(<a class="code" href="structinja_1_1_parser_error.html">ParserError</a>(message, lexer.current_position()));</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
@@ -141,7 +141,7 @@ $(function() {
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> add_literal(<span class="keyword">const</span> <span class="keywordtype">char</span>* content_ptr) {</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::string_view data_text(literal_start.data(), tok.text.data() - literal_start.data() + tok.text.size());</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    arguments.emplace_back(std::make_shared&lt;LiteralNode&gt;(json::parse(data_text), data_text.data() - content_ptr));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    arguments.emplace_back(std::make_shared&lt;LiteralNode&gt;(data_text, data_text.data() - content_ptr));</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  }</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> add_operator() {</div>
@@ -709,8 +709,8 @@ $(function() {
 <div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160; </div>
 <div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
 <div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_parser.html">Parser</a>(<span class="keyword">const</span> <a class="code" href="structinja_1_1_parser_config.html">ParserConfig</a> &amp;parser_config, <span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a> &amp;lexer_config,</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                  TemplateStorage &amp;template_storage, <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a> &amp;function_storage)</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_parser.html">Parser</a>(<span class="keyword">const</span> <a class="code" href="structinja_1_1_parser_config.html">ParserConfig</a>&amp; parser_config, <span class="keyword">const</span> <a class="code" href="structinja_1_1_lexer_config.html">LexerConfig</a>&amp; lexer_config,</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;                  TemplateStorage&amp; template_storage, <span class="keyword">const</span> <a class="code" href="classinja_1_1_function_storage.html">FunctionStorage</a>&amp; function_storage)</div>
 <div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;      : config(parser_config), lexer(lexer_config), template_storage(template_storage), function_storage(function_storage) { }</div>
 <div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160; </div>
 <div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  <a class="code" href="structinja_1_1_template.html">Template</a> parse(std::string_view input, std::string_view path) {</div>
