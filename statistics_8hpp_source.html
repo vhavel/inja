@@ -77,91 +77,90 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;node.hpp&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>inja {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classinja_1_1_statistics_visitor.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classinja_1_1_statistics_visitor.html">StatisticsVisitor</a> : <span class="keyword">public</span> <a class="code" href="classinja_1_1_node_visitor.html">NodeVisitor</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_block_node.html">BlockNode</a>&amp; node) {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; n : node.nodes) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      n-&gt;accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_text_node.html">TextNode</a>&amp;) { }</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a>&amp;) { }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_literal_node.html">LiteralNode</a>&amp;) { }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_data_node.html">DataNode</a>&amp;) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    variable_counter += 1;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_function_node.html">FunctionNode</a>&amp; node) {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; n : node.arguments) {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;      n-&gt;accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_expression_list_node.html">ExpressionListNode</a>&amp; node) {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    node.root-&gt;accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_statement_node.html">StatementNode</a>&amp;) { }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_for_statement_node.html">ForStatementNode</a>&amp;) { }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_for_array_statement_node.html">ForArrayStatementNode</a>&amp; node) {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    node.condition.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    node.body.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  }</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_for_object_statement_node.html">ForObjectStatementNode</a>&amp; node) {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    node.condition.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    node.body.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_if_statement_node.html">IfStatementNode</a>&amp; node) {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    node.condition.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    node.true_statement.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    node.false_statement.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_include_statement_node.html">IncludeStatementNode</a>&amp;) { }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_extends_statement_node.html">ExtendsStatementNode</a>&amp;) { }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_block_statement_node.html">BlockStatementNode</a>&amp; node) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    node.block.accept(*<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_set_statement_node.html">SetStatementNode</a>&amp;) { }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> variable_counter;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_statistics_visitor.html">StatisticsVisitor</a>() : variable_counter(0) { }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;} <span class="comment">// namespace inja</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_STATISTICS_HPP_</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>inja {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classinja_1_1_statistics_visitor.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classinja_1_1_statistics_visitor.html">StatisticsVisitor</a> : <span class="keyword">public</span> <a class="code" href="classinja_1_1_node_visitor.html">NodeVisitor</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_block_node.html">BlockNode</a>&amp; node) {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; n : node.nodes) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      n-&gt;accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_text_node.html">TextNode</a>&amp;) {}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_expression_node.html">ExpressionNode</a>&amp;) {}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_literal_node.html">LiteralNode</a>&amp;) {}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_data_node.html">DataNode</a>&amp;) {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    variable_counter += 1;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_function_node.html">FunctionNode</a>&amp; node) {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; n : node.arguments) {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      n-&gt;accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_expression_list_node.html">ExpressionListNode</a>&amp; node) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    node.root-&gt;accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_statement_node.html">StatementNode</a>&amp;) {}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_for_statement_node.html">ForStatementNode</a>&amp;) {}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_for_array_statement_node.html">ForArrayStatementNode</a>&amp; node) {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    node.condition.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    node.body.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_for_object_statement_node.html">ForObjectStatementNode</a>&amp; node) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    node.condition.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    node.body.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_if_statement_node.html">IfStatementNode</a>&amp; node) {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    node.condition.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    node.true_statement.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    node.false_statement.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_include_statement_node.html">IncludeStatementNode</a>&amp;) {}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_extends_statement_node.html">ExtendsStatementNode</a>&amp;) {}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_block_statement_node.html">BlockStatementNode</a>&amp; node) {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    node.block.accept(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> visit(<span class="keyword">const</span> <a class="code" href="classinja_1_1_set_statement_node.html">SetStatementNode</a>&amp;) {}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> variable_counter;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classinja_1_1_statistics_visitor.html">StatisticsVisitor</a>(): variable_counter(0) {}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// namespace inja</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif // INCLUDE_INJA_STATISTICS_HPP_</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassinja_1_1_set_statement_node_html"><div class="ttname"><a href="classinja_1_1_set_statement_node.html">inja::SetStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:359</div></div>
-<div class="ttc" id="aclassinja_1_1_for_array_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_array_statement_node.html">inja::ForArrayStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:283</div></div>
-<div class="ttc" id="aclassinja_1_1_statistics_visitor_html"><div class="ttname"><a href="classinja_1_1_statistics_visitor.html">inja::StatisticsVisitor</a></div><div class="ttdoc">A class for counting statistics on a Template.</div><div class="ttdef"><b>Definition:</b> statistics.hpp:12</div></div>
-<div class="ttc" id="aclassinja_1_1_statement_node_html"><div class="ttname"><a href="classinja_1_1_statement_node.html">inja::StatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:265</div></div>
-<div class="ttc" id="aclassinja_1_1_data_node_html"><div class="ttname"><a href="classinja_1_1_data_node.html">inja::DataNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:111</div></div>
-<div class="ttc" id="aclassinja_1_1_node_visitor_html"><div class="ttname"><a href="classinja_1_1_node_visitor.html">inja::NodeVisitor</a></div><div class="ttdef"><b>Definition:</b> node.hpp:33</div></div>
-<div class="ttc" id="aclassinja_1_1_text_node_html"><div class="ttname"><a href="classinja_1_1_text_node.html">inja::TextNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:80</div></div>
-<div class="ttc" id="aclassinja_1_1_expression_list_node_html"><div class="ttname"><a href="classinja_1_1_expression_list_node.html">inja::ExpressionListNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:253</div></div>
-<div class="ttc" id="aclassinja_1_1_block_node_html"><div class="ttname"><a href="classinja_1_1_block_node.html">inja::BlockNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:69</div></div>
-<div class="ttc" id="aclassinja_1_1_block_statement_node_html"><div class="ttname"><a href="classinja_1_1_block_statement_node.html">inja::BlockStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:346</div></div>
-<div class="ttc" id="aclassinja_1_1_expression_node_html"><div class="ttname"><a href="classinja_1_1_expression_node.html">inja::ExpressionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:91</div></div>
-<div class="ttc" id="aclassinja_1_1_extends_statement_node_html"><div class="ttname"><a href="classinja_1_1_extends_statement_node.html">inja::ExtendsStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:335</div></div>
-<div class="ttc" id="aclassinja_1_1_if_statement_node_html"><div class="ttname"><a href="classinja_1_1_if_statement_node.html">inja::IfStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:306</div></div>
-<div class="ttc" id="aclassinja_1_1_function_node_html"><div class="ttname"><a href="classinja_1_1_function_node.html">inja::FunctionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:134</div></div>
-<div class="ttc" id="aclassinja_1_1_for_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_statement_node.html">inja::ForStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:272</div></div>
-<div class="ttc" id="aclassinja_1_1_include_statement_node_html"><div class="ttname"><a href="classinja_1_1_include_statement_node.html">inja::IncludeStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:324</div></div>
-<div class="ttc" id="aclassinja_1_1_literal_node_html"><div class="ttname"><a href="classinja_1_1_literal_node.html">inja::LiteralNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:100</div></div>
-<div class="ttc" id="aclassinja_1_1_for_object_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_object_statement_node.html">inja::ForObjectStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:294</div></div>
+<div class="ttc" id="aclassinja_1_1_set_statement_node_html"><div class="ttname"><a href="classinja_1_1_set_statement_node.html">inja::SetStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:358</div></div>
+<div class="ttc" id="aclassinja_1_1_for_array_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_array_statement_node.html">inja::ForArrayStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:281</div></div>
+<div class="ttc" id="aclassinja_1_1_statistics_visitor_html"><div class="ttname"><a href="classinja_1_1_statistics_visitor.html">inja::StatisticsVisitor</a></div><div class="ttdoc">A class for counting statistics on a Template.</div><div class="ttdef"><b>Definition:</b> statistics.hpp:11</div></div>
+<div class="ttc" id="aclassinja_1_1_statement_node_html"><div class="ttname"><a href="classinja_1_1_statement_node.html">inja::StatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:263</div></div>
+<div class="ttc" id="aclassinja_1_1_data_node_html"><div class="ttname"><a href="classinja_1_1_data_node.html">inja::DataNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:108</div></div>
+<div class="ttc" id="aclassinja_1_1_node_visitor_html"><div class="ttname"><a href="classinja_1_1_node_visitor.html">inja::NodeVisitor</a></div><div class="ttdef"><b>Definition:</b> node.hpp:31</div></div>
+<div class="ttc" id="aclassinja_1_1_text_node_html"><div class="ttname"><a href="classinja_1_1_text_node.html">inja::TextNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:77</div></div>
+<div class="ttc" id="aclassinja_1_1_expression_list_node_html"><div class="ttname"><a href="classinja_1_1_expression_list_node.html">inja::ExpressionListNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:251</div></div>
+<div class="ttc" id="aclassinja_1_1_block_node_html"><div class="ttname"><a href="classinja_1_1_block_node.html">inja::BlockNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:66</div></div>
+<div class="ttc" id="aclassinja_1_1_block_statement_node_html"><div class="ttname"><a href="classinja_1_1_block_statement_node.html">inja::BlockStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:345</div></div>
+<div class="ttc" id="aclassinja_1_1_expression_node_html"><div class="ttname"><a href="classinja_1_1_expression_node.html">inja::ExpressionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:88</div></div>
+<div class="ttc" id="aclassinja_1_1_extends_statement_node_html"><div class="ttname"><a href="classinja_1_1_extends_statement_node.html">inja::ExtendsStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:334</div></div>
+<div class="ttc" id="aclassinja_1_1_if_statement_node_html"><div class="ttname"><a href="classinja_1_1_if_statement_node.html">inja::IfStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:305</div></div>
+<div class="ttc" id="aclassinja_1_1_function_node_html"><div class="ttname"><a href="classinja_1_1_function_node.html">inja::FunctionNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:131</div></div>
+<div class="ttc" id="aclassinja_1_1_for_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_statement_node.html">inja::ForStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:270</div></div>
+<div class="ttc" id="aclassinja_1_1_include_statement_node_html"><div class="ttname"><a href="classinja_1_1_include_statement_node.html">inja::IncludeStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:323</div></div>
+<div class="ttc" id="aclassinja_1_1_literal_node_html"><div class="ttname"><a href="classinja_1_1_literal_node.html">inja::LiteralNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:97</div></div>
+<div class="ttc" id="aclassinja_1_1_for_object_statement_node_html"><div class="ttname"><a href="classinja_1_1_for_object_statement_node.html">inja::ForObjectStatementNode</a></div><div class="ttdef"><b>Definition:</b> node.hpp:292</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
