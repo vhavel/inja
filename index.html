@@ -162,7 +162,7 @@ $(function() {
 <div class="line"><span class="comment">    1: Jeff</span></div>
 <div class="line"><span class="comment">    2: Tom</span></div>
 <div class="line"><span class="comment">    3: Patrick */</span></div>
-</div><!-- fragment --><p>In a loop, the special variables <code>loop/index (number)</code>, <code>loop/index1 (number)</code>, <code>loop/is_first (boolean)</code> and <code>loop/is_last (boolean)</code> are defined. In nested loops, the parent loop variables are available e.g. via <code>loop/parent/index</code>. You can also iterate over objects like <code>{% for key, value in time %}</code>.</p>
+</div><!-- fragment --><p>In a loop, the special variables <code>loop.index (number)</code>, <code>loop.index1 (number)</code>, <code>loop.is_first (boolean)</code> and <code>loop.is_last (boolean)</code> are defined. In nested loops, the parent loop variables are available e.g. via <code>loop.parent.index</code>. You can also iterate over objects like <code>{% for key, value in time %}</code>.</p>
 <h4>Conditions</h4>
 <p>Conditions support the typical if, else if and else statements. Following conditions are for example possible: </p><div class="fragment"><div class="line"><span class="comment">// Standard comparisons with a variable</span></div>
 <div class="line">render(<span class="stringliteral">&quot;{% if time.hour &gt;= 20 %}Serve{% else if time.hour &gt;= 18 %}Make{% endif %} dinner.&quot;</span>, data); <span class="comment">// Serve dinner.</span></div>
